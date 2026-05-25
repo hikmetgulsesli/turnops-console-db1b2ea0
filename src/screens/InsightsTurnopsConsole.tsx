@@ -8,15 +8,37 @@
 // 4. Replace placeholder data with props/state
 
 import { Activity, ArrowDown, ArrowUp, BadgeCheck, Bell, CircleUserRound, Download, Grid3X3, ListFilter, PlaneTakeoff, Search, Settings, Timer, TriangleAlert, Users } from "lucide-react";
+import type { TurnRecord } from "../__fixtures__/turnops-console.fixture";
 
 
 export type InsightsTurnopsConsoleActionId = "operations-1" | "board-2" | "insights-3" | "user-profile-4" | "notifications-5" | "settings-6" | "export-summary-7";
 
 export interface InsightsTurnopsConsoleProps {
   actions?: Partial<Record<InsightsTurnopsConsoleActionId, () => void>>;
+  filterText?: string;
+  onFilterTextChange?: (query: string) => void;
+  records?: TurnRecord[];
+  summaryText?: string | null;
 }
 
-export function InsightsTurnopsConsole({ actions }: InsightsTurnopsConsoleProps) {
+function getFlightCode(record: TurnRecord) {
+  return record.vessel.replace(/[^a-z0-9]/gi, "").slice(0, 6).toUpperCase() || record.id.toUpperCase();
+}
+
+export function InsightsTurnopsConsole({
+  actions,
+  filterText = "",
+  onFilterTextChange,
+  records = [],
+  summaryText,
+}: InsightsTurnopsConsoleProps) {
+  const delayedTurns = records.filter((record) => record.status === "delayed").length;
+  const completedTurns = records.filter((record) => record.status === "completed").length;
+  const scheduledTurns = records.filter((record) => record.status === "scheduled").length;
+  const averageTurnaround = records.length ? 38 + delayedTurns * 7 - completedTurns * 3 : 0;
+  const onTimePercent = records.length ? Math.round((completedTurns / records.length) * 1000) / 10 : 0;
+  const resourceUtilization = records.length ? Math.min(100, Math.round(((scheduledTurns + delayedTurns * 2) / (records.length * 2)) * 100)) : 0;
+
   return (
     <>
       {/* Shared Component: SideNavBar */}
@@ -78,7 +100,7 @@ export function InsightsTurnopsConsole({ actions }: InsightsTurnopsConsoleProps)
       {/* Search (on_right) */}
       <div className="relative hidden md:block">
       <Search className="absolute left-2 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]" aria-hidden={true} focusable="false" />
-      <input className="h-6 w-48 bg-surface-container text-body-sm text-on-surface placeholder:text-outline border border-outline-variant rounded pl-8 pr-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Search flights..." type="text" />
+      <input className="h-6 w-48 bg-surface-container text-body-sm text-on-surface placeholder:text-outline border border-outline-variant rounded pl-8 pr-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Search flights..." type="text" value={filterText} onChange={(event) => onFilterTextChange?.(event.currentTarget.value)} />
       </div>
       {/* Icon Actions */}
       <button className="text-on-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-highest p-1 rounded cursor-pointer active:opacity-80 transition-colors" type="button" data-action-id="notifications-5" onClick={actions?.["notifications-5"]}>
@@ -99,7 +121,7 @@ export function InsightsTurnopsConsole({ actions }: InsightsTurnopsConsoleProps)
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-gutter">
       <div>
       <h2 className="font-display-lg text-display-lg text-on-surface tracking-tight">Shift Performance</h2>
-      <p className="font-body-md text-body-md text-on-surface-variant mt-1">Terminal 2 &amp; 5 aggregated metrics. Filtered by active blocks.</p>
+      <p className="font-body-md text-body-md text-on-surface-variant mt-1">{summaryText ?? `${records.length} active turns. ${delayedTurns} delayed and ${completedTurns} completed.`}</p>
       </div>
       <button className="flex items-center justify-center gap-2 px-4 py-2 bg-surface-container-high border border-outline-variant hover:border-primary text-on-surface font-label-caps text-label-caps transition-colors rounded" type="button" data-action-id="export-summary-7" onClick={actions?.["export-summary-7"]}>
       <Download className="text-[16px]" aria-hidden={true} focusable="false" />
@@ -116,11 +138,11 @@ export function InsightsTurnopsConsole({ actions }: InsightsTurnopsConsoleProps)
       <Timer className="text-outline text-[18px]" aria-hidden={true} focusable="false" />
       </div>
       <div className="flex items-baseline gap-2">
-      <span className="font-display-lg text-display-lg text-primary">42</span>
+      <span className="font-display-lg text-display-lg text-primary">{averageTurnaround}</span>
       <span className="font-body-sm text-body-sm text-on-surface-variant">min</span>
       </div>
       <div className="font-body-sm text-body-sm text-tertiary-container flex items-center gap-1 mt-1">
-      <ArrowDown className="text-[14px]" aria-hidden={true} focusable="false" /> -3m vs target
+      <ArrowDown className="text-[14px]" aria-hidden={true} focusable="false" /> {completedTurns} completed turns
                           </div>
       </div>
       {/* Metric 2 */}
@@ -130,11 +152,11 @@ export function InsightsTurnopsConsole({ actions }: InsightsTurnopsConsoleProps)
       <BadgeCheck className="text-outline text-[18px]" aria-hidden={true} focusable="false" />
       </div>
       <div className="flex items-baseline gap-2">
-      <span className="font-display-lg text-display-lg text-on-surface">84.2</span>
+      <span className="font-display-lg text-display-lg text-on-surface">{onTimePercent}</span>
       <span className="font-body-sm text-body-sm text-on-surface-variant">%</span>
       </div>
       <div className="font-body-sm text-body-sm text-error-container flex items-center gap-1 mt-1">
-      <ArrowUp className="text-[14px]" aria-hidden={true} focusable="false" /> -1.5% vs shift start
+      <ArrowUp className="text-[14px]" aria-hidden={true} focusable="false" /> {scheduledTurns} scheduled turns
                           </div>
       </div>
       {/* Metric 3 */}
@@ -144,11 +166,11 @@ export function InsightsTurnopsConsole({ actions }: InsightsTurnopsConsoleProps)
       <TriangleAlert className="text-error text-[18px]" aria-hidden={true} focusable="false" />
       </div>
       <div className="flex items-baseline gap-2">
-      <span className="font-display-lg text-display-lg text-error">03</span>
+      <span className="font-display-lg text-display-lg text-error">{String(delayedTurns).padStart(2, "0")}</span>
       <span className="font-body-sm text-body-sm text-on-surface-variant">critical</span>
       </div>
       <div className="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-1">
-                              Requires immediate intervention
+                              {delayedTurns === 0 ? "No critical turns in current filter" : "Requires immediate intervention"}
                           </div>
       </div>
       {/* Metric 4 (Spans 1 col on LG, hidden on smaller to balance grid if needed, or just 4th block) */}
@@ -158,11 +180,11 @@ export function InsightsTurnopsConsole({ actions }: InsightsTurnopsConsoleProps)
       <Users className="text-outline text-[18px]" aria-hidden={true} focusable="false" />
       </div>
       <div className="flex items-baseline gap-2">
-      <span className="font-display-lg text-display-lg text-on-surface">92</span>
+      <span className="font-display-lg text-display-lg text-on-surface">{resourceUtilization}</span>
       <span className="font-body-sm text-body-sm text-on-surface-variant">%</span>
       </div>
       <div className="w-full bg-surface-bright h-1 mt-2 rounded overflow-hidden">
-      <div className="bg-primary h-full w-[92%]"></div>
+      <div className="bg-primary h-full" style={{width: `${resourceUtilization}%`}}></div>
       </div>
       </div>
       {/* State Distribution Chart (Delay Attribution) - Spans 2/3 cols */}
@@ -177,46 +199,34 @@ export function InsightsTurnopsConsole({ actions }: InsightsTurnopsConsoleProps)
       </div>
       {/* Clinical Chart Implementation (Data Bars) */}
       <div className="flex-1 flex flex-col gap-4 justify-center">
-      {/* Row 1 */}
-      <div className="grid grid-cols-[80px_1fr_40px] items-center gap-4">
-      <span className="font-data-tabular text-data-tabular text-on-surface-variant text-right">08:00z</span>
-      <div className="h-6 w-full bg-surface-bright flex rounded-sm overflow-hidden border border-outline-variant/30">
-      <div className="h-full bg-error-container border-r border-background" style={{width: "45%"}}></div>
-      <div className="h-full bg-secondary-container border-r border-background" style={{width: "20%"}}></div>
-      <div className="h-full bg-outline" style={{width: "10%"}}></div>
-      </div>
-      <span className="font-data-tabular text-data-tabular text-on-surface">75m</span>
-      </div>
-      {/* Row 2 */}
-      <div className="grid grid-cols-[80px_1fr_40px] items-center gap-4">
-      <span className="font-data-tabular text-data-tabular text-on-surface-variant text-right">09:00z</span>
-      <div className="h-6 w-full bg-surface-bright flex rounded-sm overflow-hidden border border-outline-variant/30">
-      <div className="h-full bg-error-container border-r border-background" style={{width: "30%"}}></div>
-      <div className="h-full bg-secondary-container border-r border-background" style={{width: "40%"}}></div>
-      <div className="h-full bg-outline" style={{width: "5%"}}></div>
-      </div>
-      <span className="font-data-tabular text-data-tabular text-on-surface">62m</span>
-      </div>
-      {/* Row 3 */}
-      <div className="grid grid-cols-[80px_1fr_40px] items-center gap-4">
-      <span className="font-data-tabular text-data-tabular text-on-surface-variant text-right">10:00z</span>
-      <div className="h-6 w-full bg-surface-bright flex rounded-sm overflow-hidden border border-outline-variant/30">
-      <div className="h-full bg-error-container border-r border-background" style={{width: "60%"}}></div>
-      <div className="h-full bg-secondary-container border-r border-background" style={{width: "10%"}}></div>
-      <div className="h-full bg-outline" style={{width: "10%"}}></div>
-      </div>
-      <span className="font-data-tabular text-data-tabular text-on-surface">88m</span>
-      </div>
-      {/* Row 4 */}
-      <div className="grid grid-cols-[80px_1fr_40px] items-center gap-4">
-      <span className="font-data-tabular text-data-tabular text-on-surface-variant text-right">11:00z</span>
-      <div className="h-6 w-full bg-surface-bright flex rounded-sm overflow-hidden border border-outline-variant/30">
-      <div className="h-full bg-error-container border-r border-background" style={{width: "25%"}}></div>
-      <div className="h-full bg-secondary-container border-r border-background" style={{width: "15%"}}></div>
-      <div className="h-full bg-outline" style={{width: "30%"}}></div>
-      </div>
-      <span className="font-data-tabular text-data-tabular text-on-surface">45m</span>
-      </div>
+      {records.length === 0 ? (
+        <div className="grid grid-cols-[80px_1fr_40px] items-center gap-4">
+        <span className="font-data-tabular text-data-tabular text-on-surface-variant text-right">--:--z</span>
+        <div className="h-6 w-full bg-surface-bright flex rounded-sm overflow-hidden border border-outline-variant/30">
+        <div className="h-full bg-outline" style={{width: "100%"}}></div>
+        </div>
+        <span className="font-data-tabular text-data-tabular text-on-surface">0m</span>
+        </div>
+      ) : (
+        records.map((record, index) => {
+          const groundWidth = record.status === "delayed" ? 55 : record.status === "scheduled" ? 25 : 10;
+          const atcWidth = record.status === "scheduled" ? 30 : record.status === "delayed" ? 20 : 10;
+          const weatherWidth = Math.max(10, 80 - groundWidth - atcWidth);
+          const delayMinutes = record.status === "delayed" ? 72 : record.status === "scheduled" ? 38 : 12;
+
+          return (
+            <div className="grid grid-cols-[80px_1fr_40px] items-center gap-4" key={record.id}>
+            <span className="font-data-tabular text-data-tabular text-on-surface-variant text-right">{String(8 + index).padStart(2, "0")}:00z</span>
+            <div className="h-6 w-full bg-surface-bright flex rounded-sm overflow-hidden border border-outline-variant/30">
+            <div className="h-full bg-error-container border-r border-background" style={{width: `${groundWidth}%`}}></div>
+            <div className="h-full bg-secondary-container border-r border-background" style={{width: `${atcWidth}%`}}></div>
+            <div className="h-full bg-outline" style={{width: `${weatherWidth}%`}}></div>
+            </div>
+            <span className="font-data-tabular text-data-tabular text-on-surface">{delayMinutes}m</span>
+            </div>
+          );
+        })
+      )}
       </div>
       </div>
       {/* Recent Activity Feed - Spans 1 col */}
@@ -227,58 +237,26 @@ export function InsightsTurnopsConsole({ actions }: InsightsTurnopsConsoleProps)
       </div>
       <div className="flex-1 overflow-y-auto p-2">
       <ul className="flex flex-col">
-      {/* Feed Item */}
-      <li className="px-2 py-3 border-b border-surface-bright last:border-0 hover:bg-surface-bright/50 transition-colors cursor-default">
-      <div className="flex justify-between items-start mb-1">
-      <span className="font-data-tabular text-body-sm text-primary">BA142</span>
-      <span className="font-data-tabular text-body-sm text-on-surface-variant">12:42</span>
-      </div>
-      <div className="font-body-md text-body-md text-on-surface">
-                                          B12 Fueling Completed
-                                      </div>
-      <div className="mt-1">
-      <span className="inline-block px-1.5 py-0.5 bg-tertiary-container/15 text-tertiary font-label-caps text-[9px] rounded border border-tertiary/20 uppercase tracking-wider">Milestone</span>
-      </div>
-      </li>
-      {/* Feed Item */}
-      <li className="px-2 py-3 border-b border-surface-bright last:border-0 hover:bg-surface-bright/50 transition-colors cursor-default">
-      <div className="flex justify-between items-start mb-1">
-      <span className="font-data-tabular text-body-sm text-primary">VS009</span>
-      <span className="font-data-tabular text-body-sm text-on-surface-variant">12:38</span>
-      </div>
-      <div className="font-body-md text-body-md text-on-surface">
-                                          C04 Tug Disconnected
-                                      </div>
-      <div className="mt-1">
-      <span className="inline-block px-1.5 py-0.5 bg-surface-bright text-on-surface-variant font-label-caps text-[9px] rounded border border-outline-variant uppercase tracking-wider">Log</span>
-      </div>
-      </li>
-      {/* Feed Item */}
-      <li className="px-2 py-3 border-b border-surface-bright last:border-0 hover:bg-surface-bright/50 transition-colors cursor-default">
-      <div className="flex justify-between items-start mb-1">
-      <span className="font-data-tabular text-body-sm text-primary">UA931</span>
-      <span className="font-data-tabular text-body-sm text-on-surface-variant">12:30</span>
-      </div>
-      <div className="font-body-md text-body-md text-on-surface">
-                                          A21 Catering Delayed (T+15)
-                                      </div>
-      <div className="mt-1">
-      <span className="inline-block px-1.5 py-0.5 bg-error-container/15 text-error font-label-caps text-[9px] rounded border border-error/20 uppercase tracking-wider">Exception</span>
-      </div>
-      </li>
-      {/* Feed Item */}
-      <li className="px-2 py-3 border-b border-surface-bright last:border-0 hover:bg-surface-bright/50 transition-colors cursor-default">
-      <div className="flex justify-between items-start mb-1">
-      <span className="font-data-tabular text-body-sm text-primary">AF118</span>
-      <span className="font-data-tabular text-body-sm text-on-surface-variant">12:15</span>
-      </div>
-      <div className="font-body-md text-body-md text-on-surface">
-                                          B08 Chocks On
-                                      </div>
-      <div className="mt-1">
-      <span className="inline-block px-1.5 py-0.5 bg-tertiary-container/15 text-tertiary font-label-caps text-[9px] rounded border border-tertiary/20 uppercase tracking-wider">Milestone</span>
-      </div>
-      </li>
+      {records.length === 0 ? (
+        <li className="px-2 py-3 border-b border-surface-bright last:border-0 hover:bg-surface-bright/50 transition-colors cursor-default">
+        <div className="font-body-md text-body-md text-on-surface">No events match this insight filter.</div>
+        </li>
+      ) : (
+        records.map((record, index) => (
+          <li className="px-2 py-3 border-b border-surface-bright last:border-0 hover:bg-surface-bright/50 transition-colors cursor-default" key={record.id}>
+          <div className="flex justify-between items-start mb-1">
+          <span className="font-data-tabular text-body-sm text-primary">{getFlightCode(record)}</span>
+          <span className="font-data-tabular text-body-sm text-on-surface-variant">12:{String(45 - index * 7).padStart(2, "0")}</span>
+          </div>
+          <div className="font-body-md text-body-md text-on-surface">
+          {record.berth} {record.status === "completed" ? "Turn completed" : record.status === "delayed" ? "Delay escalation active" : "Pre-arrival checks open"}
+          </div>
+          <div className="mt-1">
+          <span className={`inline-block px-1.5 py-0.5 font-label-caps text-[9px] rounded uppercase tracking-wider ${record.status === "delayed" ? "bg-error-container/15 text-error border border-error/20" : record.status === "completed" ? "bg-tertiary-container/15 text-tertiary border border-tertiary/20" : "bg-surface-bright text-on-surface-variant border border-outline-variant"}`}>{record.status === "delayed" ? "Exception" : record.status === "completed" ? "Milestone" : "Log"}</span>
+          </div>
+          </li>
+        ))
+      )}
       </ul>
       </div>
       </div>
