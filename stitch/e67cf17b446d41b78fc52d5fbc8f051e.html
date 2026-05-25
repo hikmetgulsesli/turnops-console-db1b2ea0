@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edit Turnaround Record</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#00b17b",
+                        "surface-container-highest": "#2a3548",
+                        "on-surface": "#d8e3fb",
+                        "outline": "#88929b",
+                        "error-container": "#93000a",
+                        "on-tertiary-container": "#003b26",
+                        "surface-bright": "#2f3a4c",
+                        "surface": "#081425",
+                        "on-primary-container": "#003751",
+                        "surface-container-high": "#1f2a3c",
+                        "on-secondary-container": "#4a1c00",
+                        "inverse-surface": "#d8e3fb",
+                        "outline-variant": "#3e4850",
+                        "on-primary-fixed": "#001e2f",
+                        "on-tertiary": "#003824",
+                        "on-secondary": "#552100",
+                        "error": "#ffb4ab",
+                        "background": "#081425",
+                        "on-background": "#d8e3fb",
+                        "tertiary": "#4edea3",
+                        "surface-container-low": "#111c2d",
+                        "secondary-fixed-dim": "#ffb690",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed": "#341100",
+                        "on-secondary-fixed-variant": "#783200",
+                        "secondary-fixed": "#ffdbca",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "inverse-on-surface": "#263143",
+                        "on-surface-variant": "#bec8d2",
+                        "primary-fixed-dim": "#89ceff",
+                        "surface-variant": "#2a3548",
+                        "tertiary-fixed": "#6ffbbe",
+                        "secondary": "#ffb690",
+                        "on-primary-fixed-variant": "#004c6e",
+                        "surface-dim": "#081425",
+                        "secondary-container": "#ec6a06",
+                        "primary": "#89ceff",
+                        "on-tertiary-fixed": "#002113",
+                        "primary-fixed": "#c9e6ff",
+                        "surface-container-lowest": "#040e1f",
+                        "primary-container": "#0ea5e9",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-tint": "#89ceff",
+                        "surface-container": "#152031",
+                        "on-primary": "#00344d",
+                        "inverse-primary": "#006591"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-padding": "1rem",
+                        "unit": "4px",
+                        "row-height-md": "2.5rem",
+                        "row-height-sm": "2rem",
+                        "gutter": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "data-tabular": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "data-tabular": ["14px", { "lineHeight": "20px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom Scrollbar for compact feel */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #3e4850; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #88929b; }
+
+        /* Form Control Overrides for Industrial Look */
+        input[type="time"]::-webkit-calendar-picker-indicator,
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            opacity: 0.5;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased overflow-hidden flex h-screen w-screen">
+<!-- SideNavBar -->
+<nav class="bg-surface-container-low dark:bg-surface-container-low text-primary dark:text-primary-fixed font-headline-md text-headline-md docked h-full w-16 lg:w-60 left-0 top-0 border-r border-outline-variant dark:border-outline-variant flat no shadows fixed z-50 flex flex-col py-4 transition-all duration-300">
+<!-- Header -->
+<div class="px-4 mb-8 flex items-center gap-3 overflow-hidden">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary-container" style="font-size: 18px;">flight_takeoff</span>
+</div>
+<div class="flex-col hidden lg:flex">
+<span class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface uppercase tracking-wider leading-none">TurnOps</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest leading-none mt-1">Ground Ops</span>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<ul class="flex flex-col gap-2 px-2 flex-grow">
+<!-- Active Tab: Operations (Matches context of editing a turnaround record) -->
+<li>
+<a class="flex items-center gap-4 px-3 py-2 rounded text-primary dark:text-primary-fixed-dim border-l-2 border-primary bg-surface-variant/30 hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 ease-in-out group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">flight_takeoff</span>
+<span class="font-label-caps text-label-caps hidden lg:block tracking-wider uppercase">Operations</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 px-3 py-2 rounded text-on-surface-variant dark:text-on-surface-variant border-l-2 border-transparent hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 ease-in-out group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">grid_view</span>
+<span class="font-label-caps text-label-caps hidden lg:block tracking-wider uppercase">Board</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 px-3 py-2 rounded text-on-surface-variant dark:text-on-surface-variant border-l-2 border-transparent hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 ease-in-out group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">monitoring</span>
+<span class="font-label-caps text-label-caps hidden lg:block tracking-wider uppercase">Insights</span>
+</a>
+</li>
+</ul>
+<!-- Footer Tab -->
+<div class="px-2 mt-auto">
+<a class="flex items-center gap-4 px-3 py-2 rounded text-on-surface-variant dark:text-on-surface-variant border-l-2 border-transparent hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 ease-in-out group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">account_circle</span>
+<span class="font-label-caps text-label-caps hidden lg:block tracking-wider uppercase">User Profile</span>
+</a>
+</div>
+</nav>
+<!-- TopAppBar -->
+<header class="bg-surface-dim dark:bg-surface-dim text-primary dark:text-primary-fixed font-headline-md text-headline-md docked full-width top-0 h-10 border-b border-outline-variant dark:border-outline-variant flat no shadows fixed right-0 left-16 lg:left-60 z-40 flex justify-between items-center px-gutter transition-all duration-300">
+<!-- Left: Brand / Context -->
+<div class="flex items-center gap-4">
+<span class="font-headline-md text-headline-md font-black tracking-tight text-on-surface uppercase">LHR</span>
+<div class="h-4 w-[1px] bg-outline-variant"></div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">flight_land</span>
+<span class="font-data-tabular text-data-tabular text-on-surface">BAW123</span>
+</div>
+</div>
+<!-- Right: Actions & User -->
+<div class="flex items-center gap-4">
+<span class="font-data-tabular text-data-tabular text-on-surface-variant tracking-wider">12:45 UTC</span>
+<div class="h-4 w-[1px] bg-outline-variant"></div>
+<button class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest dark:hover:bg-surface-container-highest p-1 rounded cursor-pointer active:opacity-80 transition-colors">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest dark:hover:bg-surface-container-highest p-1 rounded cursor-pointer active:opacity-80 transition-colors">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+</button>
+<div class="h-6 w-6 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center overflow-hidden ml-2">
+<!-- DataStore Placeholder Exception: No data-alt needed -->
+<img alt="Operational User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd36rvnDdmUAmccICtOJLBZbpHxJ8PreYnpXljH_I53MmR8mn14vyltSreccp8jzvZLM-BCp7QTJD2ETThjo6QfUFH5ZgWO982tsuaUVfBSprc3CeQKzCqPC13CuhhaDpJaJissZBlaR2Mx8vP_CLT1WNYwm-EXRskB_owyMOPyQZ52qbEOOweW3hZBbIdvZGBIx3evvPsZOV_06xwp9Z2dw8a_JExUAqhOVbKqwKdEa71RPbyuQ_F65Kw58DQH8YGEmpt8J1a765c"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-16 lg:ml-60 mt-10 p-6 lg:p-8 flex-1 h-[calc(100vh-2.5rem)] overflow-y-auto w-full transition-all duration-300 bg-background relative flex justify-center">
+<!-- Form Container: Focused & Constrained Width -->
+<div class="w-full max-w-2xl mt-4">
+<!-- Page Header -->
+<div class="mb-8 flex items-end justify-between border-b border-outline-variant pb-4">
+<div>
+<h1 class="font-headline-md text-headline-md text-on-surface mb-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">edit_document</span>
+                        Edit Turnaround Record
+                    </h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Update operational status and timings for flight BAW123.</p>
+</div>
+<div class="px-2 py-1 bg-surface-container-high border border-outline-variant rounded flex items-center gap-2 text-primary-container">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider">In Progress</span>
+</div>
+</div>
+<!-- The Form -->
+<form class="space-y-8 flex flex-col gap-6">
+<!-- Section: Flight Logistics -->
+<fieldset class="bg-surface-container rounded-lg border border-outline-variant p-5 shadow-sm">
+<legend class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest px-2 ml-[-8px] bg-surface-container">Logistics</legend>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 mt-2">
+<!-- Flight Number (Read-only aesthetic) -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="flightNumber">Flight Number</label>
+<input class="bg-surface-container-lowest border border-outline-variant/50 text-on-surface-variant font-data-tabular text-data-tabular h-row-height-md px-3 rounded focus:outline-none cursor-not-allowed" id="flightNumber" readonly="" type="text" value="BAW123"/>
+</div>
+<!-- Gate -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps text-on-surface" for="gate">Gate Assignment <span class="text-error">*</span></label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">meeting_room</span>
+<input class="w-full bg-surface-container-high border border-outline-variant text-on-surface font-data-tabular text-data-tabular h-row-height-md pl-9 pr-3 rounded focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" id="gate" required="" type="text" value="T5-B34"/>
+</div>
+</div>
+<!-- Arrival Time -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps text-on-surface" for="arrivalTime">Actual Arrival (ATA)</label>
+<input class="w-full bg-surface-container-high border border-outline-variant text-on-surface font-data-tabular text-data-tabular h-row-height-md px-3 rounded focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" id="arrivalTime" type="time" value="11:42"/>
+</div>
+<!-- Departure Time (Showing Validation Error State) -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps text-error" for="departureTime">Est. Departure (ETD) <span class="text-error">*</span></label>
+<input class="w-full bg-surface-container-high border border-error text-on-surface font-data-tabular text-data-tabular h-row-height-md px-3 rounded focus:outline-none focus:border-error focus:ring-1 focus:ring-error transition-colors shadow-[0_0_0_1px_rgba(255,180,171,0.2)]" id="departureTime" required="" type="time"/>
+<span class="font-body-sm text-body-sm text-error mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">error</span>
+                                ETD is required for clearance.
+                            </span>
+</div>
+</div>
+</fieldset>
+<!-- Section: Ground Services Status -->
+<fieldset class="bg-surface-container rounded-lg border border-outline-variant p-5 shadow-sm">
+<legend class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest px-2 ml-[-8px] bg-surface-container">Ground Services</legend>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+<!-- Fueling -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps text-on-surface flex justify-between" for="fuelingStatus">
+                                Fueling
+                                <span class="material-symbols-outlined text-[14px] text-tertiary-container">check_circle</span>
+</label>
+<div class="relative">
+<select class="appearance-none w-full bg-surface-container-high border border-outline-variant text-on-surface font-body-sm text-body-sm h-row-height-sm px-3 pr-8 rounded focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors cursor-pointer" id="fuelingStatus">
+<option value="pending">Pending</option>
+<option value="active">Active</option>
+<option selected="" value="completed">Completed</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-[18px]">arrow_drop_down</span>
+</div>
+</div>
+<!-- Catering -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps text-on-surface flex justify-between" for="cateringStatus">
+                                Catering
+                                <span class="material-symbols-outlined text-[14px] text-primary-container animate-spin" style="animation-duration: 3s;">sync</span>
+</label>
+<div class="relative">
+<select class="appearance-none w-full bg-surface-container-high border border-primary-container text-on-surface font-body-sm text-body-sm h-row-height-sm px-3 pr-8 rounded focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors cursor-pointer shadow-[0_0_0_1px_rgba(14,165,233,0.3)]" id="cateringStatus">
+<option value="pending">Pending</option>
+<option selected="" value="active">Active</option>
+<option value="completed">Completed</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-[18px]">arrow_drop_down</span>
+</div>
+</div>
+<!-- Baggage -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps text-on-surface flex justify-between" for="baggageStatus">
+                                Baggage
+                                <span class="material-symbols-outlined text-[14px] text-on-surface-variant">schedule</span>
+</label>
+<div class="relative">
+<select class="appearance-none w-full bg-surface-container-high border border-outline-variant text-on-surface font-body-sm text-body-sm h-row-height-sm px-3 pr-8 rounded focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors cursor-pointer" id="baggageStatus">
+<option selected="" value="pending">Pending</option>
+<option value="active">Active</option>
+<option value="completed">Completed</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-[18px]">arrow_drop_down</span>
+</div>
+</div>
+</div>
+</fieldset>
+<!-- Remarks / Notes -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps text-on-surface" for="remarks">Operational Remarks</label>
+<textarea class="w-full bg-surface-container-high border border-outline-variant text-on-surface font-body-sm text-body-sm p-3 rounded focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors resize-none" id="remarks" placeholder="Enter any specific notes regarding delays, special cargo, etc." rows="3"></textarea>
+</div>
+<!-- Form Actions (Sticky Bottom aesthetic, but inline here) -->
+<div class="pt-6 border-t border-outline-variant flex items-center justify-end gap-3 mt-4">
+<button class="h-row-height-md px-6 font-label-caps text-label-caps uppercase tracking-wider text-on-surface bg-transparent border border-outline-variant rounded hover:bg-surface-container-highest transition-colors flex items-center justify-center" type="button">
+                        Cancel
+                    </button>
+<button class="h-row-height-md px-6 font-label-caps text-label-caps uppercase tracking-wider text-on-primary-container bg-primary-container border border-primary-container rounded hover:bg-primary-fixed transition-colors shadow-sm flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]">save</span>
+                        Save Record
+                    </button>
+</div>
+</form>
+</div>
+</main>
+<script>
+        // Simple JS for visual interaction demonstration (e.g., changing select colors based on value)
+        document.querySelectorAll('select').forEach(select => {
+            select.addEventListener('change', function() {
+                const parentBlock = this.closest('.flex-col');
+                const icon = parentBlock.querySelector('label .material-symbols-outlined');
+                
+                // Reset classes
+                this.classList.remove('border-primary-container', 'shadow-[0_0_0_1px_rgba(14,165,233,0.3)]');
+                icon.className = 'material-symbols-outlined text-[14px]';
+                
+                if (this.value === 'completed') {
+                    icon.textContent = 'check_circle';
+                    icon.classList.add('text-tertiary-container');
+                } else if (this.value === 'active') {
+                    this.classList.add('border-primary-container', 'shadow-[0_0_0_1px_rgba(14,165,233,0.3)]');
+                    icon.textContent = 'sync';
+                    icon.classList.add('text-primary-container', 'animate-spin');
+                    icon.style.animationDuration = '3s';
+                } else {
+                    icon.textContent = 'schedule';
+                    icon.classList.add('text-on-surface-variant');
+                }
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ground Operations Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#00b17b",
+                        "surface-container-highest": "#2a3548",
+                        "on-surface": "#d8e3fb",
+                        "outline": "#88929b",
+                        "error-container": "#93000a",
+                        "on-tertiary-container": "#003b26",
+                        "surface-bright": "#2f3a4c",
+                        "surface": "#081425",
+                        "on-primary-container": "#003751",
+                        "surface-container-high": "#1f2a3c",
+                        "on-secondary-container": "#4a1c00",
+                        "inverse-surface": "#d8e3fb",
+                        "outline-variant": "#3e4850",
+                        "on-primary-fixed": "#001e2f",
+                        "on-tertiary": "#003824",
+                        "on-secondary": "#552100",
+                        "error": "#ffb4ab",
+                        "background": "#081425",
+                        "on-background": "#d8e3fb",
+                        "tertiary": "#4edea3",
+                        "surface-container-low": "#111c2d",
+                        "secondary-fixed-dim": "#ffb690",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed": "#341100",
+                        "on-secondary-fixed-variant": "#783200",
+                        "secondary-fixed": "#ffdbca",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "inverse-on-surface": "#263143",
+                        "on-surface-variant": "#bec8d2",
+                        "primary-fixed-dim": "#89ceff",
+                        "surface-variant": "#2a3548",
+                        "tertiary-fixed": "#6ffbbe",
+                        "secondary": "#ffb690",
+                        "on-primary-fixed-variant": "#004c6e",
+                        "surface-dim": "#081425",
+                        "secondary-container": "#ec6a06",
+                        "primary": "#89ceff",
+                        "on-tertiary-fixed": "#002113",
+                        "primary-fixed": "#c9e6ff",
+                        "surface-container-lowest": "#040e1f",
+                        "primary-container": "#0ea5e9",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-tint": "#89ceff",
+                        "surface-container": "#152031",
+                        "on-primary": "#00344d",
+                        "inverse-primary": "#006591"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-padding": "1rem",
+                        "unit": "4px",
+                        "row-height-md": "2.5rem",
+                        "row-height-sm": "2rem",
+                        "gutter": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "data-tabular": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "data-tabular": ["14px", { "lineHeight": "20px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen w-screen overflow-hidden flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar Component -->
+<nav class="bg-surface-container-low dark:bg-surface-container-low docked h-full w-16 lg:w-60 left-0 top-0 border-r border-outline-variant dark:border-outline-variant flat no shadows fixed left-0 top-0 z-50 flex flex-col py-4 flex-shrink-0 transition-all duration-300">
+<!-- Header -->
+<div class="px-4 mb-8 flex items-center space-x-3 overflow-hidden">
+<div class="w-8 h-8 rounded-DEFAULT bg-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-primary" style="font-variation-settings: 'FILL' 1;">flight_takeoff</span>
+</div>
+<div class="hidden lg:block">
+<div class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface truncate">TurnOps</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">Ground Ops</div>
+</div>
+</div>
+<!-- Main Nav -->
+<div class="flex-1 overflow-y-auto space-y-1 px-2">
+<!-- Active Tab: Operations -->
+<a class="flex items-center px-2 py-3 rounded-DEFAULT text-primary dark:text-primary-fixed-dim border-l-2 border-primary bg-surface-variant/30 transition-colors duration-150 ease-in-out group" href="#" title="Operations">
+<span class="material-symbols-outlined w-6 text-center">flight_takeoff</span>
+<span class="ml-3 hidden lg:block font-label-caps text-label-caps truncate">Operations</span>
+</a>
+<a class="flex items-center px-2 py-3 rounded-DEFAULT text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 ease-in-out group border-l-2 border-transparent" href="#" title="Board">
+<span class="material-symbols-outlined w-6 text-center">grid_view</span>
+<span class="ml-3 hidden lg:block font-label-caps text-label-caps truncate">Board</span>
+</a>
+<a class="flex items-center px-2 py-3 rounded-DEFAULT text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 ease-in-out group border-l-2 border-transparent" href="#" title="Insights">
+<span class="material-symbols-outlined w-6 text-center">monitoring</span>
+<span class="ml-3 hidden lg:block font-label-caps text-label-caps truncate">Insights</span>
+</a>
+</div>
+<!-- Footer Nav -->
+<div class="px-2 mt-auto">
+<a class="flex items-center px-2 py-3 rounded-DEFAULT text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 ease-in-out group border-l-2 border-transparent" href="#" title="User Profile">
+<span class="material-symbols-outlined w-6 text-center">account_circle</span>
+<span class="ml-3 hidden lg:block font-label-caps text-label-caps truncate">User Profile</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<div class="flex-1 flex flex-col ml-16 lg:ml-60 h-screen overflow-hidden bg-background">
+<!-- TopAppBar Component -->
+<header class="bg-surface-dim dark:bg-surface-dim docked full-width top-0 h-10 border-b border-outline-variant dark:border-outline-variant flat no shadows fixed top-0 right-0 left-16 lg:left-60 z-40 flex justify-between items-center px-gutter transition-all duration-300">
+<div class="flex items-center">
+<span class="font-headline-md text-headline-md font-black tracking-tight text-on-surface">LHR</span>
+</div>
+<div class="flex items-center space-x-4">
+<!-- Search -->
+<div class="hidden md:flex items-center bg-surface-container-low border border-outline-variant rounded-DEFAULT px-2 py-1 h-7">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px] mr-1">search</span>
+<input class="bg-transparent border-none text-body-sm font-body-sm text-on-surface focus:outline-none focus:ring-0 w-48 p-0 h-full placeholder:text-on-surface-variant" placeholder="Search flight, gate, reg..." type="text"/>
+</div>
+<div class="text-on-surface-variant font-data-tabular text-data-tabular">12:45 UTC</div>
+<div class="flex items-center space-x-2">
+<button class="text-on-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-highest p-1 rounded-DEFAULT transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-highest p-1 rounded-DEFAULT transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+</button>
+<div class="w-6 h-6 rounded-full bg-surface-container-highest border border-outline-variant overflow-hidden ml-2 cursor-pointer">
+<img alt="Operational User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjeSYqpgmO-YM38g4ji3KhUiKuVG4rFjLaZuCiVbPMeCtvbKLfg84rgoNq6boZ6eXgrp3k4ylLTry-Px00QpIQraxv35H08zwKF4IpMu0Fe1LjTK0QZswnK-M-DErHUH0T47K4hz3mcU0-I_Qj-eN6OXZdWLYkHLvndpPZahMjFOURWBIeBuT2GZYRac2m6EumQA16K1rg-x13LsidrgK1w6REIv0FRIDgPtu8ojPDtZBLe5DDqh6sw2Eq7bTil9czLfWqBfxFw1Uz"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<main class="flex-1 overflow-y-auto mt-10 p-gutter space-y-gutter scrollbar-hide">
+<!-- Summary Metrics -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Metric Card 1 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-DEFAULT p-3 flex flex-col justify-between h-24">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Active Turns</span>
+<span class="material-symbols-outlined text-primary text-[18px]">sync</span>
+</div>
+<div class="flex items-baseline space-x-2">
+<span class="font-display-lg text-display-lg text-on-surface">42</span>
+<span class="font-body-sm text-body-sm text-tertiary">+3 vs hr</span>
+</div>
+</div>
+<!-- Metric Card 2 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-DEFAULT p-3 flex flex-col justify-between h-24">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Gate Readiness</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+</div>
+<div class="flex items-baseline space-x-2">
+<span class="font-display-lg text-display-lg text-on-surface">94%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">SLA 95%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 mt-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[94%]"></div>
+</div>
+</div>
+<!-- Metric Card 3 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-DEFAULT p-3 flex flex-col justify-between h-24">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Inbound Next Hr</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">flight_land</span>
+</div>
+<div class="flex items-baseline space-x-2">
+<span class="font-display-lg text-display-lg text-on-surface">18</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Flights</span>
+</div>
+</div>
+<!-- Metric Card 4 - Urgent -->
+<div class="bg-surface-container-low border border-error/50 rounded-DEFAULT p-3 flex flex-col justify-between h-24 relative overflow-hidden">
+<div class="absolute inset-0 bg-error/5 pointer-events-none"></div>
+<div class="flex justify-between items-start relative z-10">
+<span class="font-label-caps text-label-caps text-error uppercase">Urgent Alerts</span>
+<span class="material-symbols-outlined text-error text-[18px]">warning</span>
+</div>
+<div class="flex items-baseline space-x-2 relative z-10">
+<span class="font-display-lg text-display-lg text-error">3</span>
+<span class="font-body-sm text-body-sm text-error/80">Requires Action</span>
+</div>
+</div>
+</div>
+<!-- Operations Data Table -->
+<div class="bg-surface-container-low border border-outline-variant rounded-DEFAULT flex flex-col h-[calc(100vh-14rem)]">
+<!-- Table Controls -->
+<div class="flex justify-between items-center p-3 border-b border-outline-variant">
+<div class="flex space-x-2">
+<button class="bg-primary-container text-on-primary-container font-label-caps text-label-caps px-3 py-1.5 rounded-DEFAULT hover:opacity-90 transition-opacity">ALL TURNS</button>
+<button class="bg-transparent border border-outline-variant text-on-surface font-label-caps text-label-caps px-3 py-1.5 rounded-DEFAULT hover:bg-surface-container-high transition-colors">DELAYED</button>
+<button class="bg-transparent border border-outline-variant text-on-surface font-label-caps text-label-caps px-3 py-1.5 rounded-DEFAULT hover:bg-surface-container-high transition-colors">COMPLETED</button>
+</div>
+<div class="flex space-x-2">
+<button class="text-on-surface-variant p-1 rounded-DEFAULT hover:bg-surface-container-high transition-colors border border-transparent hover:border-outline-variant">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+</button>
+<button class="text-on-surface-variant p-1 rounded-DEFAULT hover:bg-surface-container-high transition-colors border border-transparent hover:border-outline-variant">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Table Container -->
+<div class="flex-1 overflow-auto scrollbar-thin">
+<table class="w-full text-left border-collapse">
+<thead class="sticky top-0 bg-surface-container-low z-10">
+<tr class="border-b border-outline-variant">
+<th class="py-2 px-3 font-label-caps text-label-caps text-on-surface-variant uppercase w-24">Flight</th>
+<th class="py-2 px-3 font-label-caps text-label-caps text-on-surface-variant uppercase w-20">Gate</th>
+<th class="py-2 px-3 font-label-caps text-label-caps text-on-surface-variant uppercase w-24">STD/ETD</th>
+<th class="py-2 px-3 font-label-caps text-label-caps text-on-surface-variant uppercase w-32">Status</th>
+<th class="py-2 px-3 font-label-caps text-label-caps text-on-surface-variant uppercase">Turn Progress</th>
+<th class="py-2 px-3 font-label-caps text-label-caps text-on-surface-variant uppercase w-16 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="font-data-tabular text-data-tabular divide-y divide-outline-variant/50">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-high transition-colors group h-row-md">
+<td class="py-1 px-3 text-on-surface">BA124</td>
+<td class="py-1 px-3 text-on-surface">T5-A10</td>
+<td class="py-1 px-3">
+<div class="flex flex-col">
+<span class="text-on-surface">14:00</span>
+<span class="text-on-surface-variant text-[10px]">14:05</span>
+</div>
+</td>
+<td class="py-1 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded-DEFAULT bg-primary/10 text-primary border border-primary/20 text-[11px] font-bold uppercase">
+                                        Boarding
+                                    </span>
+</td>
+<td class="py-1 px-3">
+<div class="flex items-center space-x-1">
+<!-- Fuel -->
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden" title="Fueling: Complete">
+<div class="h-full bg-tertiary w-full"></div>
+</div>
+<!-- Catering -->
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden" title="Catering: Complete">
+<div class="h-full bg-tertiary w-full"></div>
+</div>
+<!-- Baggage -->
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden" title="Baggage: In Progress">
+<div class="h-full bg-primary w-[60%]"></div>
+</div>
+</div>
+</td>
+<td class="py-1 px-3 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 Alert -->
+<tr class="bg-error/5 hover:bg-error/10 transition-colors group h-row-md border-l-2 border-l-error">
+<td class="py-1 px-3 text-on-surface">AA051</td>
+<td class="py-1 px-3 text-on-surface">T3-B22</td>
+<td class="py-1 px-3">
+<div class="flex flex-col">
+<span class="line-through text-on-surface-variant">14:15</span>
+<span class="text-error">14:45</span>
+</div>
+</td>
+<td class="py-1 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded-DEFAULT bg-error/10 text-error border border-error/20 text-[11px] font-bold uppercase">
+                                        Tug Delay
+                                    </span>
+</td>
+<td class="py-1 px-3">
+<div class="flex items-center space-x-1">
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-full"></div>
+</div>
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-error w-[20%]"></div>
+</div>
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-surface-container-highest w-0"></div>
+</div>
+</div>
+</td>
+<td class="py-1 px-3 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-high transition-colors group h-row-md">
+<td class="py-1 px-3 text-on-surface">VS201</td>
+<td class="py-1 px-3 text-on-surface">T3-A04</td>
+<td class="py-1 px-3">
+<div class="flex flex-col">
+<span class="text-on-surface">14:30</span>
+<span class="text-on-surface-variant text-[10px]">--:--</span>
+</div>
+</td>
+<td class="py-1 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded-DEFAULT bg-surface-container-highest text-on-surface-variant border border-outline-variant text-[11px] font-bold uppercase">
+                                        Scheduled
+                                    </span>
+</td>
+<td class="py-1 px-3">
+<div class="flex items-center space-x-1">
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-surface-container-highest w-0"></div>
+</div>
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-surface-container-highest w-0"></div>
+</div>
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-surface-container-highest w-0"></div>
+</div>
+</div>
+</td>
+<td class="py-1 px-3 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+<style>
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .scrollbar-hide {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        
+        /* Custom thin scrollbar for table */
+        .scrollbar-thin::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        .scrollbar-thin::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .scrollbar-thin::-webkit-scrollbar-thumb {
+            background: #3e4850; 
+            border-radius: 4px;
+        }
+        .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+            background: #88929b; 
+        }
+    </style>
+</body></html>

@@ -1,0 +1,38 @@
+[
+  {
+    "screenId": "11e4c2b7f4a843b3bb283df39e2f387a",
+    "name": "Insights - TurnOps Console",
+    "type": "app-screen",
+    "description": "Insights - TurnOps Console screen",
+    "surfaceIds": [
+      "SURF_INSIGHTS"
+    ]
+  },
+  {
+    "screenId": "5eb5e24997be49a984b66f87fb1680d4",
+    "name": "Record Operations - TurnOps Console",
+    "type": "app-screen",
+    "description": "Record Operations - TurnOps Console screen",
+    "surfaceIds": [
+      "SURF_RECORD_OPERATIONS"
+    ]
+  },
+  {
+    "screenId": "e67cf17b446d41b78fc52d5fbc8f051e",
+    "name": "Record Editor - TurnOps Console",
+    "type": "form",
+    "description": "Record Editor - TurnOps Console screen",
+    "surfaceIds": [
+      "SURF_RECORD_EDITOR"
+    ]
+  },
+  {
+    "screenId": "ad635ff380fd4568b7a8f13dd10d102c",
+    "name": "Status Board - TurnOps Console",
+    "type": "app-screen",
+    "description": "Status Board - TurnOps Console screen",
+    "surfaceIds": [
+      "SURF_STATUS_BOARD"
+    ]
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "screenId": "11e4c2b7f4a843b3bb283df39e2f387a",
+    "title": "Insights - TurnOps Console",
+    "htmlFile": "11e4c2b7f4a843b3bb283df39e2f387a.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2Y1ODBiM2VmOGUwZjRmZTU5M2JkOWQ4ZjMzM2IzMGU1EgsSBxCN19Wi9xcYAZIBJAoKcHJvamVjdF9pZBIWQhQxNDYzNjM2NTA3OTY3NzQ2OTU4MQ&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/turnops-console-db1b2ea0/stitch/11e4c2b7f4a843b3bb283df39e2f387a.html",
+    "surfaceIds": [
+      "SURF_INSIGHTS"
+    ]
+  },
+  {
+    "screenId": "5eb5e24997be49a984b66f87fb1680d4",
+    "title": "Record Operations - TurnOps Console",
+    "htmlFile": "5eb5e24997be49a984b66f87fb1680d4.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzJlNjA3NzRiNGRhNzQwOWI5NjAwOTQ0MDFkN2IxNjlkEgsSBxCN19Wi9xcYAZIBJAoKcHJvamVjdF9pZBIWQhQxNDYzNjM2NTA3OTY3NzQ2OTU4MQ&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/turnops-console-db1b2ea0/stitch/5eb5e24997be49a984b66f87fb1680d4.html",
+    "surfaceIds": [
+      "SURF_RECORD_OPERATIONS"
+    ]
+  },
+  {
+    "screenId": "e67cf17b446d41b78fc52d5fbc8f051e",
+    "title": "Record Editor - TurnOps Console",
+    "htmlFile": "e67cf17b446d41b78fc52d5fbc8f051e.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzExNzkzMWM2NTczMzRmNzI4NTdiNjU4NWRjNzRiMTFlEgsSBxCN19Wi9xcYAZIBJAoKcHJvamVjdF9pZBIWQhQxNDYzNjM2NTA3OTY3NzQ2OTU4MQ&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/turnops-console-db1b2ea0/stitch/e67cf17b446d41b78fc52d5fbc8f051e.html",
+    "surfaceIds": [
+      "SURF_RECORD_EDITOR"
+    ]
+  },
+  {
+    "screenId": "ad635ff380fd4568b7a8f13dd10d102c",
+    "title": "Status Board - TurnOps Console",
+    "htmlFile": "ad635ff380fd4568b7a8f13dd10d102c.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzk2MTlmZjQzOTRhNTQxYmM5YjFkNTFmODMyNmQ2OTZmEgsSBxCN19Wi9xcYAZIBJAoKcHJvamVjdF9pZBIWQhQxNDYzNjM2NTA3OTY3NzQ2OTU4MQ&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/turnops-console-db1b2ea0/stitch/ad635ff380fd4568b7a8f13dd10d102c.html",
+    "surfaceIds": [
+      "SURF_STATUS_BOARD"
+    ]
+  }
+]

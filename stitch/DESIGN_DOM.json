@@ -1,0 +1,2132 @@
+{
+  "generatedAt": "2026-05-25T19:48:20.436Z",
+  "screenCount": 4,
+  "screens": {
+    "11e4c2b7f4a843b3bb283df39e2f387a": {
+      "screenId": "11e4c2b7f4a843b3bb283df39e2f387a",
+      "materialSymbolsRequired": true,
+      "sections": [
+        {
+          "tag": "nav",
+          "layout": "flex-col",
+          "classes": [
+            "fixed",
+            "left-0",
+            "top-0",
+            "h-full",
+            "z-50",
+            "flex",
+            "flex-col",
+            "py-4",
+            "w-16",
+            "lg:w-60"
+          ],
+          "childCount": 7
+        },
+        {
+          "tag": "header",
+          "layout": "flex-row",
+          "classes": [
+            "fixed",
+            "top-0",
+            "right-0",
+            "left-16",
+            "lg:left-60",
+            "z-40",
+            "flex",
+            "justify-between",
+            "items-center",
+            "px-gutter"
+          ],
+          "childCount": 5
+        },
+        {
+          "tag": "main",
+          "layout": "flex-row",
+          "classes": [
+            "flex-1",
+            "overflow-y-auto",
+            "mt-10",
+            "p-container-padding",
+            "bg-background"
+          ],
+          "childCount": 63
+        }
+      ],
+      "buttons": [
+        {
+          "kind": "button",
+          "label": "Operations",
+          "classes": [
+            "flex",
+            "items-center",
+            "gap-3",
+            "px-3",
+            "py-2",
+            "rounded",
+            "text-on-surface-variant",
+            "dark:text-on-surface-variant",
+            "hover:bg-surface-container-high",
+            "dark:hover:bg-surface-container-high",
+            "hover:text-on-surface",
+            "transition-colors",
+            "duration-150",
+            "ease-in-out",
+            "group",
+            "w-full",
+            "text-left"
+          ],
+          "icon": "flight_takeoff",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Board",
+          "classes": [
+            "flex",
+            "items-center",
+            "gap-3",
+            "px-3",
+            "py-2",
+            "rounded",
+            "text-on-surface-variant",
+            "dark:text-on-surface-variant",
+            "hover:bg-surface-container-high",
+            "dark:hover:bg-surface-container-high",
+            "hover:text-on-surface",
+            "transition-colors",
+            "duration-150",
+            "ease-in-out",
+            "group",
+            "w-full",
+            "text-left"
+          ],
+          "icon": "grid_view",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Insights",
+          "classes": [
+            "flex",
+            "items-center",
+            "gap-3",
+            "px-3",
+            "py-2",
+            "text-primary",
+            "dark:text-primary-fixed-dim",
+            "border-l-2",
+            "border-primary",
+            "bg-surface-variant/30",
+            "transition-colors",
+            "duration-150",
+            "ease-in-out",
+            "w-full",
+            "text-left"
+          ],
+          "icon": "monitoring",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "User Profile",
+          "classes": [
+            "flex",
+            "items-center",
+            "gap-3",
+            "px-3",
+            "py-2",
+            "rounded",
+            "text-on-surface-variant",
+            "dark:text-on-surface-variant",
+            "hover:bg-surface-container-high",
+            "dark:hover:bg-surface-container-high",
+            "hover:text-on-surface",
+            "transition-colors",
+            "duration-150",
+            "ease-in-out",
+            "group",
+            "w-full",
+            "text-left"
+          ],
+          "icon": "account_circle",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "notifications",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:bg-surface-container-highest",
+            "dark:hover:bg-surface-container-highest",
+            "p-1",
+            "rounded",
+            "cursor-pointer",
+            "active:opacity-80",
+            "transition-colors"
+          ],
+          "icon": "notifications",
+          "action": "navigate",
+          "expectedBehavior": "navigate:/notifications",
+          "expectedRoute": "/notifications",
+          "routeInferred": true
+        },
+        {
+          "kind": "button",
+          "label": "settings",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:bg-surface-container-highest",
+            "dark:hover:bg-surface-container-highest",
+            "p-1",
+            "rounded",
+            "cursor-pointer",
+            "active:opacity-80",
+            "transition-colors",
+            "hidden",
+            "sm:block"
+          ],
+          "icon": "settings",
+          "action": "navigate",
+          "expectedBehavior": "navigate:/settings",
+          "expectedRoute": "/settings",
+          "routeInferred": true
+        },
+        {
+          "kind": "button",
+          "label": "EXPORT SUMMARY",
+          "classes": [
+            "flex",
+            "items-center",
+            "justify-center",
+            "gap-2",
+            "px-4",
+            "py-2",
+            "bg-surface-container-high",
+            "border",
+            "border-outline-variant",
+            "hover:border-primary",
+            "text-on-surface",
+            "font-label-caps",
+            "text-label-caps",
+            "transition-colors",
+            "rounded"
+          ],
+          "icon": "download",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "flight_takeoff",
+          "classes": [],
+          "icon": "flight_takeoff",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "TurnOps Ground Ops",
+          "classes": [],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        }
+      ],
+      "inputs": [
+        {
+          "kind": "input",
+          "type": "text",
+          "label": "Search flights...",
+          "placeholder": "Search flights...",
+          "name": "",
+          "classes": [
+            "h-6",
+            "w-48",
+            "bg-surface-container",
+            "text-body-sm",
+            "text-on-surface",
+            "placeholder:text-outline",
+            "border",
+            "border-outline-variant",
+            "rounded",
+            "pl-8",
+            "pr-2",
+            "focus:outline-none",
+            "focus:border-primary",
+            "focus:ring-1",
+            "focus:ring-primary",
+            "transition-colors"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "navLinks": [],
+      "cards": [],
+      "icons": [
+        "flight_takeoff",
+        "grid_view",
+        "monitoring",
+        "account_circle",
+        "search",
+        "notifications",
+        "settings",
+        "download",
+        "timer",
+        "arrow_downward",
+        "fact_check",
+        "arrow_upward",
+        "warning",
+        "group",
+        "filter_list"
+      ],
+      "images": [
+        {
+          "src": "https://lh3.googleusercontent.com/aida-public/AB6AXuBx77goYQqG6egQYbJjWk0PvGELv4ciGKFsZ2fRWC_-pz7hkF8HUWqbaCLaYWONpftFYE9mLZ4MMx9ERAeUdzMScTPmdodlkq02KM4Ss1wumbtuR05iy50yxqHfiEhm75Akmcbdf8Z7z3flYOYyth",
+          "alt": "Operational User"
+        }
+      ],
+      "cssVars": {},
+      "colorPalette": {
+        "tertiary-container": "#00b17b",
+        "surface-container-highest": "#2a3548",
+        "on-surface": "#d8e3fb",
+        "outline": "#88929b",
+        "error-container": "#93000a",
+        "on-tertiary-container": "#003b26",
+        "surface-bright": "#2f3a4c",
+        "surface": "#081425",
+        "on-primary-container": "#003751",
+        "surface-container-high": "#1f2a3c",
+        "on-secondary-container": "#4a1c00",
+        "inverse-surface": "#d8e3fb",
+        "outline-variant": "#3e4850",
+        "on-primary-fixed": "#001e2f",
+        "on-tertiary": "#003824",
+        "on-secondary": "#552100",
+        "error": "#ffb4ab",
+        "background": "#081425",
+        "on-background": "#d8e3fb",
+        "tertiary": "#4edea3",
+        "surface-container-low": "#111c2d",
+        "secondary-fixed-dim": "#ffb690",
+        "on-error-container": "#ffdad6",
+        "on-secondary-fixed": "#341100",
+        "on-secondary-fixed-variant": "#783200",
+        "secondary-fixed": "#ffdbca",
+        "on-tertiary-fixed-variant": "#005236",
+        "inverse-on-surface": "#263143",
+        "on-surface-variant": "#bec8d2",
+        "primary-fixed-dim": "#89ceff",
+        "surface-variant": "#2a3548",
+        "tertiary-fixed": "#6ffbbe",
+        "secondary": "#ffb690",
+        "on-primary-fixed-variant": "#004c6e",
+        "surface-dim": "#081425",
+        "secondary-container": "#ec6a06",
+        "primary": "#89ceff",
+        "on-tertiary-fixed": "#002113",
+        "primary-fixed": "#c9e6ff",
+        "surface-container-lowest": "#040e1f",
+        "primary-container": "#0ea5e9",
+        "on-error": "#690005",
+        "tertiary-fixed-dim": "#4edea3",
+        "surface-tint": "#89ceff",
+        "surface-container": "#152031",
+        "on-primary": "#00344d",
+        "inverse-primary": "#006591"
+      },
+      "fonts": [
+        "Material Symbols Outlined",
+        "Inter"
+      ],
+      "layoutHints": {
+        "gridCols": 1,
+        "flexDirection": "col",
+        "gap": "3"
+      },
+      "behaviorContract": [
+        {
+          "kind": "button",
+          "label": "Operations",
+          "icon": "flight_takeoff",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Board",
+          "icon": "grid_view",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Insights",
+          "icon": "monitoring",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "User Profile",
+          "icon": "account_circle",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "notifications",
+          "icon": "notifications",
+          "action": "navigate",
+          "route": "/notifications",
+          "expectedBehavior": "navigate:/notifications"
+        },
+        {
+          "kind": "button",
+          "label": "settings",
+          "icon": "settings",
+          "action": "navigate",
+          "route": "/settings",
+          "expectedBehavior": "navigate:/settings"
+        },
+        {
+          "kind": "button",
+          "label": "EXPORT SUMMARY",
+          "icon": "download",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "flight_takeoff",
+          "icon": "flight_takeoff",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "TurnOps Ground Ops",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "input",
+          "label": "Search flights...",
+          "type": "text",
+          "placeholder": "Search flights...",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "tabBar": [
+        {
+          "kind": "button",
+          "label": "flight_takeoff",
+          "icon": "flight_takeoff",
+          "active": true
+        },
+        {
+          "kind": "button",
+          "label": "TurnOps Ground Ops",
+          "icon": null,
+          "active": false
+        },
+        {
+          "kind": "button",
+          "label": "flight_takeoff",
+          "icon": "flight_takeoff",
+          "active": true
+        },
+        {
+          "kind": "button",
+          "label": "Operations",
+          "icon": "flight_takeoff",
+          "active": true
+        },
+        {
+          "kind": "button",
+          "label": "Board",
+          "icon": "grid_view",
+          "active": true
+        },
+        {
+          "kind": "button",
+          "label": "Insights",
+          "icon": "monitoring",
+          "active": true
+        },
+        {
+          "kind": "button",
+          "label": "User Profile",
+          "icon": "account_circle",
+          "active": true
+        }
+      ],
+      "title": "Insights - TurnOps Console"
+    },
+    "5eb5e24997be49a984b66f87fb1680d4": {
+      "screenId": "5eb5e24997be49a984b66f87fb1680d4",
+      "materialSymbolsRequired": true,
+      "sections": [
+        {
+          "tag": "nav",
+          "layout": "block",
+          "classes": [
+            "bg-surface-container-low",
+            "dark:bg-surface-container-low",
+            "docked",
+            "h-full",
+            "w-16",
+            "lg:w-60",
+            "left-0",
+            "top-0",
+            "border-r",
+            "border-outline-variant"
+          ],
+          "childCount": 7
+        },
+        {
+          "tag": "header",
+          "layout": "block",
+          "classes": [
+            "bg-surface-dim",
+            "dark:bg-surface-dim",
+            "docked",
+            "full-width",
+            "top-0",
+            "h-10",
+            "border-b",
+            "border-outline-variant",
+            "dark:border-outline-variant",
+            "flat"
+          ],
+          "childCount": 6
+        },
+        {
+          "tag": "main",
+          "layout": "flex-row",
+          "classes": [
+            "flex-1",
+            "overflow-y-auto",
+            "mt-10",
+            "p-gutter",
+            "space-y-gutter",
+            "scrollbar-hide"
+          ],
+          "childCount": 49
+        }
+      ],
+      "buttons": [
+        {
+          "kind": "button",
+          "label": "notifications",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:bg-surface-container-highest",
+            "dark:hover:bg-surface-container-highest",
+            "p-1",
+            "rounded-DEFAULT",
+            "transition-colors",
+            "cursor-pointer",
+            "active:opacity-80"
+          ],
+          "icon": "notifications",
+          "action": "navigate",
+          "expectedBehavior": "navigate:/notifications",
+          "expectedRoute": "/notifications",
+          "routeInferred": true
+        },
+        {
+          "kind": "button",
+          "label": "settings",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:bg-surface-container-highest",
+            "dark:hover:bg-surface-container-highest",
+            "p-1",
+            "rounded-DEFAULT",
+            "transition-colors",
+            "cursor-pointer",
+            "active:opacity-80"
+          ],
+          "icon": "settings",
+          "action": "navigate",
+          "expectedBehavior": "navigate:/settings",
+          "expectedRoute": "/settings",
+          "routeInferred": true
+        },
+        {
+          "kind": "button",
+          "label": "ALL TURNS",
+          "classes": [
+            "bg-primary-container",
+            "text-on-primary-container",
+            "font-label-caps",
+            "text-label-caps",
+            "px-3",
+            "py-1.5",
+            "rounded-DEFAULT",
+            "hover:opacity-90",
+            "transition-opacity"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "DELAYED",
+          "classes": [
+            "bg-transparent",
+            "border",
+            "border-outline-variant",
+            "text-on-surface",
+            "font-label-caps",
+            "text-label-caps",
+            "px-3",
+            "py-1.5",
+            "rounded-DEFAULT",
+            "hover:bg-surface-container-high",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "COMPLETED",
+          "classes": [
+            "bg-transparent",
+            "border",
+            "border-outline-variant",
+            "text-on-surface",
+            "font-label-caps",
+            "text-label-caps",
+            "px-3",
+            "py-1.5",
+            "rounded-DEFAULT",
+            "hover:bg-surface-container-high",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "filter_list",
+          "classes": [
+            "text-on-surface-variant",
+            "p-1",
+            "rounded-DEFAULT",
+            "hover:bg-surface-container-high",
+            "transition-colors",
+            "border",
+            "border-transparent",
+            "hover:border-outline-variant"
+          ],
+          "icon": "filter_list",
+          "action": "search",
+          "expectedBehavior": "filter/search visible results from input/query"
+        },
+        {
+          "kind": "button",
+          "label": "more_vert",
+          "classes": [
+            "text-on-surface-variant",
+            "p-1",
+            "rounded-DEFAULT",
+            "hover:bg-surface-container-high",
+            "transition-colors",
+            "border",
+            "border-transparent",
+            "hover:border-outline-variant"
+          ],
+          "icon": "more_vert",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "chevron_right",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:text-primary",
+            "transition-colors",
+            "opacity-0",
+            "group-hover:opacity-100"
+          ],
+          "icon": "chevron_right",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "flight_takeoff",
+          "classes": [],
+          "icon": "flight_takeoff",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#",
+          "expectedRoute": "#"
+        },
+        {
+          "kind": "button",
+          "label": "TurnOps",
+          "classes": [],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Ground Ops",
+          "classes": [],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        }
+      ],
+      "inputs": [
+        {
+          "kind": "input",
+          "type": "text",
+          "label": "Search flight, gate, reg...",
+          "placeholder": "Search flight, gate, reg...",
+          "name": "",
+          "classes": [
+            "bg-transparent",
+            "border-none",
+            "text-body-sm",
+            "font-body-sm",
+            "text-on-surface",
+            "focus:outline-none",
+            "focus:ring-0",
+            "w-48",
+            "p-0",
+            "h-full",
+            "placeholder:text-on-surface-variant"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "navLinks": [
+        {
+          "kind": "link",
+          "label": "Operations",
+          "href": "#",
+          "classes": [
+            "ml-3",
+            "hidden",
+            "lg:block",
+            "font-label-caps",
+            "text-label-caps",
+            "truncate"
+          ],
+          "icon": "flight_takeoff",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Board",
+          "href": "#",
+          "classes": [
+            "ml-3",
+            "hidden",
+            "lg:block",
+            "font-label-caps",
+            "text-label-caps",
+            "truncate"
+          ],
+          "icon": "grid_view",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "href": "#",
+          "classes": [
+            "ml-3",
+            "hidden",
+            "lg:block",
+            "font-label-caps",
+            "text-label-caps",
+            "truncate"
+          ],
+          "icon": "monitoring",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "User Profile",
+          "href": "#",
+          "classes": [
+            "ml-3",
+            "hidden",
+            "lg:block",
+            "font-label-caps",
+            "text-label-caps",
+            "truncate"
+          ],
+          "icon": "account_circle",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        }
+      ],
+      "cards": [],
+      "icons": [
+        "flight_takeoff",
+        "grid_view",
+        "monitoring",
+        "account_circle",
+        "search",
+        "notifications",
+        "settings",
+        "sync",
+        "check_circle",
+        "flight_land",
+        "warning",
+        "filter_list",
+        "more_vert",
+        "chevron_right"
+      ],
+      "images": [
+        {
+          "src": "https://lh3.googleusercontent.com/aida-public/AB6AXuCjeSYqpgmO-YM38g4ji3KhUiKuVG4rFjLaZuCiVbPMeCtvbKLfg84rgoNq6boZ6eXgrp3k4ylLTry-Px00QpIQraxv35H08zwKF4IpMu0Fe1LjTK0QZswnK-M-DErHUH0T47K4hz3mcU0-I_Qj-e",
+          "alt": "Operational User"
+        }
+      ],
+      "cssVars": {},
+      "colorPalette": {
+        "tertiary-container": "#00b17b",
+        "surface-container-highest": "#2a3548",
+        "on-surface": "#d8e3fb",
+        "outline": "#88929b",
+        "error-container": "#93000a",
+        "on-tertiary-container": "#003b26",
+        "surface-bright": "#2f3a4c",
+        "surface": "#081425",
+        "on-primary-container": "#003751",
+        "surface-container-high": "#1f2a3c",
+        "on-secondary-container": "#4a1c00",
+        "inverse-surface": "#d8e3fb",
+        "outline-variant": "#3e4850",
+        "on-primary-fixed": "#001e2f",
+        "on-tertiary": "#003824",
+        "on-secondary": "#552100",
+        "error": "#ffb4ab",
+        "background": "#081425",
+        "on-background": "#d8e3fb",
+        "tertiary": "#4edea3",
+        "surface-container-low": "#111c2d",
+        "secondary-fixed-dim": "#ffb690",
+        "on-error-container": "#ffdad6",
+        "on-secondary-fixed": "#341100",
+        "on-secondary-fixed-variant": "#783200",
+        "secondary-fixed": "#ffdbca",
+        "on-tertiary-fixed-variant": "#005236",
+        "inverse-on-surface": "#263143",
+        "on-surface-variant": "#bec8d2",
+        "primary-fixed-dim": "#89ceff",
+        "surface-variant": "#2a3548",
+        "tertiary-fixed": "#6ffbbe",
+        "secondary": "#ffb690",
+        "on-primary-fixed-variant": "#004c6e",
+        "surface-dim": "#081425",
+        "secondary-container": "#ec6a06",
+        "primary": "#89ceff",
+        "on-tertiary-fixed": "#002113",
+        "primary-fixed": "#c9e6ff",
+        "surface-container-lowest": "#040e1f",
+        "primary-container": "#0ea5e9",
+        "on-error": "#690005",
+        "tertiary-fixed-dim": "#4edea3",
+        "surface-tint": "#89ceff",
+        "surface-container": "#152031",
+        "on-primary": "#00344d",
+        "inverse-primary": "#006591"
+      },
+      "fonts": [
+        "Material Symbols Outlined",
+        "Inter"
+      ],
+      "layoutHints": {
+        "gridCols": 1,
+        "flexDirection": "col"
+      },
+      "behaviorContract": [
+        {
+          "kind": "link",
+          "label": "Operations",
+          "icon": "flight_takeoff",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Board",
+          "icon": "grid_view",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "icon": "monitoring",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "User Profile",
+          "icon": "account_circle",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "button",
+          "label": "notifications",
+          "icon": "notifications",
+          "action": "navigate",
+          "route": "/notifications",
+          "expectedBehavior": "navigate:/notifications"
+        },
+        {
+          "kind": "button",
+          "label": "settings",
+          "icon": "settings",
+          "action": "navigate",
+          "route": "/settings",
+          "expectedBehavior": "navigate:/settings"
+        },
+        {
+          "kind": "button",
+          "label": "ALL TURNS",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "DELAYED",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "COMPLETED",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "filter_list",
+          "icon": "filter_list",
+          "action": "search",
+          "expectedBehavior": "filter/search visible results from input/query"
+        },
+        {
+          "kind": "button",
+          "label": "more_vert",
+          "icon": "more_vert",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "chevron_right",
+          "icon": "chevron_right",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "flight_takeoff",
+          "icon": "flight_takeoff",
+          "action": "navigate",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "button",
+          "label": "TurnOps",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Ground Ops",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "input",
+          "label": "Search flight, gate, reg...",
+          "type": "text",
+          "placeholder": "Search flight, gate, reg...",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "tabBar": [
+        {
+          "kind": "button",
+          "label": "flight_takeoff",
+          "icon": "flight_takeoff",
+          "active": true
+        },
+        {
+          "kind": "button",
+          "label": "TurnOps",
+          "icon": null,
+          "active": false
+        },
+        {
+          "kind": "button",
+          "label": "Ground Ops",
+          "icon": null,
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "Operations",
+          "icon": "flight_takeoff",
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Board",
+          "icon": "grid_view",
+          "route": "#",
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "icon": "monitoring",
+          "route": "#",
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "User Profile",
+          "icon": "account_circle",
+          "route": "#",
+          "active": false
+        }
+      ],
+      "title": "Record Operations - TurnOps Console"
+    },
+    "ad635ff380fd4568b7a8f13dd10d102c": {
+      "screenId": "ad635ff380fd4568b7a8f13dd10d102c",
+      "materialSymbolsRequired": true,
+      "sections": [
+        {
+          "tag": "aside",
+          "layout": "absolute",
+          "classes": [
+            "bg-surface-container-low",
+            "dark:bg-surface-container-low",
+            "text-primary",
+            "dark:text-primary-fixed",
+            "border-r",
+            "border-outline-variant",
+            "dark:border-outline-variant",
+            "fixed",
+            "left-0",
+            "top-0"
+          ],
+          "childCount": 4
+        },
+        {
+          "tag": "header",
+          "layout": "absolute",
+          "classes": [
+            "bg-surface-dim",
+            "dark:bg-surface-dim",
+            "text-primary",
+            "dark:text-primary-fixed",
+            "border-b",
+            "border-outline-variant",
+            "dark:border-outline-variant",
+            "fixed",
+            "top-0",
+            "right-0"
+          ],
+          "childCount": 5
+        },
+        {
+          "tag": "main",
+          "layout": "flex-col",
+          "classes": [
+            "pt-10",
+            "flex-1",
+            "overflow-hidden",
+            "bg-background",
+            "flex",
+            "flex-col"
+          ],
+          "childCount": 47
+        }
+      ],
+      "buttons": [
+        {
+          "kind": "button",
+          "label": "notifications",
+          "classes": [
+            "w-8",
+            "h-8",
+            "flex",
+            "items-center",
+            "justify-center",
+            "rounded-DEFAULT",
+            "text-on-surface-variant",
+            "hover:bg-surface-container-highest",
+            "dark:hover:bg-surface-container-highest",
+            "cursor-pointer",
+            "active:opacity-80",
+            "transition-colors"
+          ],
+          "icon": "notifications",
+          "action": "navigate",
+          "expectedBehavior": "navigate:/notifications",
+          "expectedRoute": "/notifications",
+          "routeInferred": true
+        },
+        {
+          "kind": "button",
+          "label": "settings",
+          "classes": [
+            "w-8",
+            "h-8",
+            "flex",
+            "items-center",
+            "justify-center",
+            "rounded-DEFAULT",
+            "text-on-surface-variant",
+            "hover:bg-surface-container-highest",
+            "dark:hover:bg-surface-container-highest",
+            "cursor-pointer",
+            "active:opacity-80",
+            "transition-colors"
+          ],
+          "icon": "settings",
+          "action": "navigate",
+          "expectedBehavior": "navigate:/settings",
+          "expectedRoute": "/settings",
+          "routeInferred": true
+        },
+        {
+          "kind": "button",
+          "label": "Filter",
+          "classes": [
+            "px-3",
+            "py-1",
+            "text-body-sm",
+            "font-body-sm",
+            "border",
+            "border-outline-variant",
+            "text-on-surface",
+            "rounded-DEFAULT",
+            "hover:bg-surface-container",
+            "transition-colors",
+            "flex",
+            "items-center",
+            "gap-1"
+          ],
+          "icon": "filter_list",
+          "action": "search",
+          "expectedBehavior": "filter/search visible results from input/query"
+        },
+        {
+          "kind": "button",
+          "label": "New Turn",
+          "classes": [
+            "px-3",
+            "py-1",
+            "text-body-sm",
+            "font-body-sm",
+            "bg-primary",
+            "text-on-primary",
+            "font-bold",
+            "rounded-DEFAULT",
+            "hover:bg-primary-fixed",
+            "transition-colors",
+            "flex",
+            "items-center",
+            "gap-1"
+          ],
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        }
+      ],
+      "inputs": [
+        {
+          "kind": "input",
+          "type": "text",
+          "label": "Flight ID...",
+          "placeholder": "Flight ID...",
+          "name": "",
+          "classes": [
+            "bg-transparent",
+            "border-none",
+            "text-body-sm",
+            "font-body-sm",
+            "text-on-surface",
+            "focus:ring-0",
+            "w-24",
+            "px-2",
+            "h-full",
+            "placeholder:text-outline"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "navLinks": [
+        {
+          "kind": "link",
+          "label": "Operations",
+          "href": "#",
+          "classes": [
+            "hidden",
+            "lg:block",
+            "font-label-caps",
+            "text-label-caps",
+            "uppercase",
+            "tracking-wider"
+          ],
+          "icon": "flight_takeoff",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Board",
+          "href": "#",
+          "classes": [
+            "hidden",
+            "lg:block",
+            "font-label-caps",
+            "text-label-caps",
+            "uppercase",
+            "tracking-wider",
+            "font-bold"
+          ],
+          "icon": "grid_view",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "href": "#",
+          "classes": [
+            "hidden",
+            "lg:block",
+            "font-label-caps",
+            "text-label-caps",
+            "uppercase",
+            "tracking-wider"
+          ],
+          "icon": "monitoring",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "User Profile",
+          "href": "#",
+          "classes": [
+            "hidden",
+            "lg:block",
+            "font-label-caps",
+            "text-label-caps",
+            "uppercase",
+            "tracking-wider"
+          ],
+          "icon": "account_circle",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        }
+      ],
+      "cards": [],
+      "icons": [
+        "flight_takeoff",
+        "grid_view",
+        "monitoring",
+        "account_circle",
+        "search",
+        "notifications",
+        "settings",
+        "filter_list",
+        "add",
+        "warning",
+        "group_remove"
+      ],
+      "images": [],
+      "cssVars": {},
+      "colorPalette": {
+        "tertiary-container": "#00b17b",
+        "surface-container-highest": "#2a3548",
+        "on-surface": "#d8e3fb",
+        "outline": "#88929b",
+        "error-container": "#93000a",
+        "on-tertiary-container": "#003b26",
+        "surface-bright": "#2f3a4c",
+        "surface": "#081425",
+        "on-primary-container": "#003751",
+        "surface-container-high": "#1f2a3c",
+        "on-secondary-container": "#4a1c00",
+        "inverse-surface": "#d8e3fb",
+        "outline-variant": "#3e4850",
+        "on-primary-fixed": "#001e2f",
+        "on-tertiary": "#003824",
+        "on-secondary": "#552100",
+        "error": "#ffb4ab",
+        "background": "#081425",
+        "on-background": "#d8e3fb",
+        "tertiary": "#4edea3",
+        "surface-container-low": "#111c2d",
+        "secondary-fixed-dim": "#ffb690",
+        "on-error-container": "#ffdad6",
+        "on-secondary-fixed": "#341100",
+        "on-secondary-fixed-variant": "#783200",
+        "secondary-fixed": "#ffdbca",
+        "on-tertiary-fixed-variant": "#005236",
+        "inverse-on-surface": "#263143",
+        "on-surface-variant": "#bec8d2",
+        "primary-fixed-dim": "#89ceff",
+        "surface-variant": "#2a3548",
+        "tertiary-fixed": "#6ffbbe",
+        "secondary": "#ffb690",
+        "on-primary-fixed-variant": "#004c6e",
+        "surface-dim": "#081425",
+        "secondary-container": "#ec6a06",
+        "primary": "#89ceff",
+        "on-tertiary-fixed": "#002113",
+        "primary-fixed": "#c9e6ff",
+        "surface-container-lowest": "#040e1f",
+        "primary-container": "#0ea5e9",
+        "on-error": "#690005",
+        "tertiary-fixed-dim": "#4edea3",
+        "surface-tint": "#89ceff",
+        "surface-container": "#152031",
+        "on-primary": "#00344d",
+        "inverse-primary": "#006591"
+      },
+      "fonts": [
+        "Material Symbols Outlined"
+      ],
+      "layoutHints": {
+        "gridCols": 1,
+        "flexDirection": "col",
+        "gap": "3"
+      },
+      "behaviorContract": [
+        {
+          "kind": "link",
+          "label": "Operations",
+          "icon": "flight_takeoff",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Board",
+          "icon": "grid_view",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "icon": "monitoring",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "User Profile",
+          "icon": "account_circle",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "button",
+          "label": "notifications",
+          "icon": "notifications",
+          "action": "navigate",
+          "route": "/notifications",
+          "expectedBehavior": "navigate:/notifications"
+        },
+        {
+          "kind": "button",
+          "label": "settings",
+          "icon": "settings",
+          "action": "navigate",
+          "route": "/settings",
+          "expectedBehavior": "navigate:/settings"
+        },
+        {
+          "kind": "button",
+          "label": "Filter",
+          "icon": "filter_list",
+          "action": "search",
+          "expectedBehavior": "filter/search visible results from input/query"
+        },
+        {
+          "kind": "button",
+          "label": "New Turn",
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "input",
+          "label": "Flight ID...",
+          "type": "text",
+          "placeholder": "Flight ID...",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "tabBar": [
+        {
+          "kind": "link",
+          "label": "Operations",
+          "icon": "flight_takeoff",
+          "route": "#",
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "Board",
+          "icon": "grid_view",
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "icon": "monitoring",
+          "route": "#",
+          "active": false
+        }
+      ],
+      "title": "Status Board - TurnOps Console"
+    },
+    "e67cf17b446d41b78fc52d5fbc8f051e": {
+      "screenId": "e67cf17b446d41b78fc52d5fbc8f051e",
+      "materialSymbolsRequired": true,
+      "sections": [
+        {
+          "tag": "nav",
+          "layout": "block",
+          "classes": [
+            "bg-surface-container-low",
+            "dark:bg-surface-container-low",
+            "text-primary",
+            "dark:text-primary-fixed",
+            "font-headline-md",
+            "text-headline-md",
+            "docked",
+            "h-full",
+            "w-16",
+            "lg:w-60"
+          ],
+          "childCount": 7
+        },
+        {
+          "tag": "header",
+          "layout": "block",
+          "classes": [
+            "bg-surface-dim",
+            "dark:bg-surface-dim",
+            "text-primary",
+            "dark:text-primary-fixed",
+            "font-headline-md",
+            "text-headline-md",
+            "docked",
+            "full-width",
+            "top-0",
+            "h-10"
+          ],
+          "childCount": 6
+        },
+        {
+          "tag": "main",
+          "layout": "flex-row",
+          "classes": [
+            "ml-16",
+            "lg:ml-60",
+            "mt-10",
+            "p-6",
+            "lg:p-8",
+            "flex-1",
+            "h-[calc(100vh-2.5rem)]",
+            "overflow-y-auto",
+            "w-full",
+            "transition-all"
+          ],
+          "childCount": 19
+        }
+      ],
+      "buttons": [
+        {
+          "kind": "button",
+          "label": "notifications",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:text-on-surface",
+            "hover:bg-surface-container-highest",
+            "dark:hover:bg-surface-container-highest",
+            "p-1",
+            "rounded",
+            "cursor-pointer",
+            "active:opacity-80",
+            "transition-colors"
+          ],
+          "icon": "notifications",
+          "action": "navigate",
+          "expectedBehavior": "navigate:/notifications",
+          "expectedRoute": "/notifications",
+          "routeInferred": true
+        },
+        {
+          "kind": "button",
+          "label": "settings",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:text-on-surface",
+            "hover:bg-surface-container-highest",
+            "dark:hover:bg-surface-container-highest",
+            "p-1",
+            "rounded",
+            "cursor-pointer",
+            "active:opacity-80",
+            "transition-colors"
+          ],
+          "icon": "settings",
+          "action": "navigate",
+          "expectedBehavior": "navigate:/settings",
+          "expectedRoute": "/settings",
+          "routeInferred": true
+        },
+        {
+          "kind": "button",
+          "label": "Cancel",
+          "classes": [
+            "h-row-height-md",
+            "px-6",
+            "font-label-caps",
+            "text-label-caps",
+            "uppercase",
+            "tracking-wider",
+            "text-on-surface",
+            "bg-transparent",
+            "border",
+            "border-outline-variant",
+            "rounded",
+            "hover:bg-surface-container-highest",
+            "transition-colors",
+            "flex",
+            "items-center",
+            "justify-center"
+          ],
+          "icon": null,
+          "action": "dismiss",
+          "expectedBehavior": "close dialog/panel or return to previous state"
+        },
+        {
+          "kind": "button",
+          "label": "Record",
+          "classes": [
+            "h-row-height-md",
+            "px-6",
+            "font-label-caps",
+            "text-label-caps",
+            "uppercase",
+            "tracking-wider",
+            "text-on-primary-container",
+            "bg-primary-container",
+            "border",
+            "border-primary-container",
+            "rounded",
+            "hover:bg-primary-fixed",
+            "transition-colors",
+            "shadow-sm",
+            "flex",
+            "items-center",
+            "justify-center",
+            "gap-2"
+          ],
+          "icon": "save",
+          "action": "form-submit",
+          "expectedBehavior": "validate inputs and submit/apply changes"
+        },
+        {
+          "kind": "button",
+          "label": "flight_takeoff",
+          "classes": [],
+          "icon": "flight_takeoff",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#",
+          "expectedRoute": "#"
+        },
+        {
+          "kind": "button",
+          "label": "TurnOps Ground Ops",
+          "classes": [],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        }
+      ],
+      "inputs": [
+        {
+          "kind": "input",
+          "type": "text",
+          "label": "flightNumber",
+          "placeholder": "",
+          "name": "flightNumber",
+          "classes": [
+            "bg-surface-container-lowest",
+            "border",
+            "border-outline-variant/50",
+            "text-on-surface-variant",
+            "font-data-tabular",
+            "text-data-tabular",
+            "h-row-height-md",
+            "px-3",
+            "rounded",
+            "focus:outline-none",
+            "cursor-not-allowed"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "text",
+          "label": "gate",
+          "placeholder": "",
+          "name": "gate",
+          "classes": [
+            "w-full",
+            "bg-surface-container-high",
+            "border",
+            "border-outline-variant",
+            "text-on-surface",
+            "font-data-tabular",
+            "text-data-tabular",
+            "h-row-height-md",
+            "pl-9",
+            "pr-3",
+            "rounded",
+            "focus:outline-none",
+            "focus:border-primary-container",
+            "focus:ring-1",
+            "focus:ring-primary-container",
+            "transition-colors"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "time",
+          "label": "arrivalTime",
+          "placeholder": "",
+          "name": "arrivalTime",
+          "classes": [
+            "w-full",
+            "bg-surface-container-high",
+            "border",
+            "border-outline-variant",
+            "text-on-surface",
+            "font-data-tabular",
+            "text-data-tabular",
+            "h-row-height-md",
+            "px-3",
+            "rounded",
+            "focus:outline-none",
+            "focus:border-primary-container",
+            "focus:ring-1",
+            "focus:ring-primary-container",
+            "transition-colors"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "time",
+          "label": "departureTime",
+          "placeholder": "",
+          "name": "departureTime",
+          "classes": [
+            "w-full",
+            "bg-surface-container-high",
+            "border",
+            "border-error",
+            "text-on-surface",
+            "font-data-tabular",
+            "text-data-tabular",
+            "h-row-height-md",
+            "px-3",
+            "rounded",
+            "focus:outline-none",
+            "focus:border-error",
+            "focus:ring-1",
+            "focus:ring-error",
+            "transition-colors",
+            "shadow-[0_0_0_1px_rgba(255,180,171,0.2)]"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "select",
+          "label": "fuelingStatus",
+          "placeholder": "",
+          "name": "fuelingStatus",
+          "classes": [
+            "appearance-none",
+            "w-full",
+            "bg-surface-container-high",
+            "border",
+            "border-outline-variant",
+            "text-on-surface",
+            "font-body-sm",
+            "text-body-sm",
+            "h-row-height-sm",
+            "px-3",
+            "pr-8",
+            "rounded",
+            "focus:outline-none",
+            "focus:border-primary-container",
+            "focus:ring-1",
+            "focus:ring-primary-container",
+            "transition-colors",
+            "cursor-pointer"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "select",
+          "label": "cateringStatus",
+          "placeholder": "",
+          "name": "cateringStatus",
+          "classes": [
+            "appearance-none",
+            "w-full",
+            "bg-surface-container-high",
+            "border",
+            "border-primary-container",
+            "text-on-surface",
+            "font-body-sm",
+            "text-body-sm",
+            "h-row-height-sm",
+            "px-3",
+            "pr-8",
+            "rounded",
+            "focus:outline-none",
+            "focus:border-primary-container",
+            "focus:ring-1",
+            "focus:ring-primary-container",
+            "transition-colors",
+            "cursor-pointer",
+            "shadow-[0_0_0_1px_rgba(14,165,233,0.3)]"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "select",
+          "label": "baggageStatus",
+          "placeholder": "",
+          "name": "baggageStatus",
+          "classes": [
+            "appearance-none",
+            "w-full",
+            "bg-surface-container-high",
+            "border",
+            "border-outline-variant",
+            "text-on-surface",
+            "font-body-sm",
+            "text-body-sm",
+            "h-row-height-sm",
+            "px-3",
+            "pr-8",
+            "rounded",
+            "focus:outline-none",
+            "focus:border-primary-container",
+            "focus:ring-1",
+            "focus:ring-primary-container",
+            "transition-colors",
+            "cursor-pointer"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "textarea",
+          "label": "Enter any specific notes regarding delays, special cargo, etc.",
+          "placeholder": "Enter any specific notes regarding delays, special cargo, etc.",
+          "name": "remarks",
+          "classes": [
+            "w-full",
+            "bg-surface-container-high",
+            "border",
+            "border-outline-variant",
+            "text-on-surface",
+            "font-body-sm",
+            "text-body-sm",
+            "p-3",
+            "rounded",
+            "focus:outline-none",
+            "focus:border-primary-container",
+            "focus:ring-1",
+            "focus:ring-primary-container",
+            "transition-colors",
+            "resize-none"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "navLinks": [
+        {
+          "kind": "link",
+          "label": "Operations",
+          "href": "#",
+          "classes": [
+            "font-label-caps",
+            "text-label-caps",
+            "hidden",
+            "lg:block",
+            "tracking-wider",
+            "uppercase"
+          ],
+          "icon": "flight_takeoff",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Board",
+          "href": "#",
+          "classes": [
+            "font-label-caps",
+            "text-label-caps",
+            "hidden",
+            "lg:block",
+            "tracking-wider",
+            "uppercase"
+          ],
+          "icon": "grid_view",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "href": "#",
+          "classes": [
+            "font-label-caps",
+            "text-label-caps",
+            "hidden",
+            "lg:block",
+            "tracking-wider",
+            "uppercase"
+          ],
+          "icon": "monitoring",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "User Profile",
+          "href": "#",
+          "classes": [
+            "font-label-caps",
+            "text-label-caps",
+            "hidden",
+            "lg:block",
+            "tracking-wider",
+            "uppercase"
+          ],
+          "icon": "account_circle",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        }
+      ],
+      "cards": [],
+      "icons": [
+        "flight_takeoff",
+        "grid_view",
+        "monitoring",
+        "account_circle",
+        "flight_land",
+        "notifications",
+        "settings",
+        "edit_document",
+        "meeting_room",
+        "error",
+        "check_circle",
+        "arrow_drop_down",
+        "sync",
+        "schedule",
+        "save"
+      ],
+      "images": [
+        {
+          "src": "https://lh3.googleusercontent.com/aida-public/AB6AXuCd36rvnDdmUAmccICtOJLBZbpHxJ8PreYnpXljH_I53MmR8mn14vyltSreccp8jzvZLM-BCp7QTJD2ETThjo6QfUFH5ZgWO982tsuaUVfBSprc3CeQKzCqPC13CuhhaDpJaJissZBlaR2Mx8vP_C",
+          "alt": "Operational User"
+        }
+      ],
+      "cssVars": {},
+      "colorPalette": {
+        "tertiary-container": "#00b17b",
+        "surface-container-highest": "#2a3548",
+        "on-surface": "#d8e3fb",
+        "outline": "#88929b",
+        "error-container": "#93000a",
+        "on-tertiary-container": "#003b26",
+        "surface-bright": "#2f3a4c",
+        "surface": "#081425",
+        "on-primary-container": "#003751",
+        "surface-container-high": "#1f2a3c",
+        "on-secondary-container": "#4a1c00",
+        "inverse-surface": "#d8e3fb",
+        "outline-variant": "#3e4850",
+        "on-primary-fixed": "#001e2f",
+        "on-tertiary": "#003824",
+        "on-secondary": "#552100",
+        "error": "#ffb4ab",
+        "background": "#081425",
+        "on-background": "#d8e3fb",
+        "tertiary": "#4edea3",
+        "surface-container-low": "#111c2d",
+        "secondary-fixed-dim": "#ffb690",
+        "on-error-container": "#ffdad6",
+        "on-secondary-fixed": "#341100",
+        "on-secondary-fixed-variant": "#783200",
+        "secondary-fixed": "#ffdbca",
+        "on-tertiary-fixed-variant": "#005236",
+        "inverse-on-surface": "#263143",
+        "on-surface-variant": "#bec8d2",
+        "primary-fixed-dim": "#89ceff",
+        "surface-variant": "#2a3548",
+        "tertiary-fixed": "#6ffbbe",
+        "secondary": "#ffb690",
+        "on-primary-fixed-variant": "#004c6e",
+        "surface-dim": "#081425",
+        "secondary-container": "#ec6a06",
+        "primary": "#89ceff",
+        "on-tertiary-fixed": "#002113",
+        "primary-fixed": "#c9e6ff",
+        "surface-container-lowest": "#040e1f",
+        "primary-container": "#0ea5e9",
+        "on-error": "#690005",
+        "tertiary-fixed-dim": "#4edea3",
+        "surface-tint": "#89ceff",
+        "surface-container": "#152031",
+        "on-primary": "#00344d",
+        "inverse-primary": "#006591"
+      },
+      "fonts": [
+        "Material Symbols Outlined",
+        "Inter"
+      ],
+      "layoutHints": {
+        "gridCols": 1,
+        "flexDirection": "col",
+        "gap": "3"
+      },
+      "behaviorContract": [
+        {
+          "kind": "link",
+          "label": "Operations",
+          "icon": "flight_takeoff",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Board",
+          "icon": "grid_view",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "icon": "monitoring",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "User Profile",
+          "icon": "account_circle",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "button",
+          "label": "notifications",
+          "icon": "notifications",
+          "action": "navigate",
+          "route": "/notifications",
+          "expectedBehavior": "navigate:/notifications"
+        },
+        {
+          "kind": "button",
+          "label": "settings",
+          "icon": "settings",
+          "action": "navigate",
+          "route": "/settings",
+          "expectedBehavior": "navigate:/settings"
+        },
+        {
+          "kind": "button",
+          "label": "Cancel",
+          "icon": null,
+          "action": "dismiss",
+          "expectedBehavior": "close dialog/panel or return to previous state"
+        },
+        {
+          "kind": "button",
+          "label": "Record",
+          "icon": "save",
+          "action": "form-submit",
+          "expectedBehavior": "validate inputs and submit/apply changes"
+        },
+        {
+          "kind": "button",
+          "label": "flight_takeoff",
+          "icon": "flight_takeoff",
+          "action": "navigate",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "button",
+          "label": "TurnOps Ground Ops",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "input",
+          "label": "flightNumber",
+          "type": "text",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "gate",
+          "type": "text",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "arrivalTime",
+          "type": "time",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "departureTime",
+          "type": "time",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "fuelingStatus",
+          "type": "select",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "cateringStatus",
+          "type": "select",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "baggageStatus",
+          "type": "select",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "Enter any specific notes regarding delays, special cargo, etc.",
+          "type": "textarea",
+          "placeholder": "Enter any specific notes regarding delays, special cargo, etc.",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "tabBar": [
+        {
+          "kind": "button",
+          "label": "flight_takeoff",
+          "icon": "flight_takeoff",
+          "active": true
+        },
+        {
+          "kind": "button",
+          "label": "TurnOps Ground Ops",
+          "icon": null,
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "Operations",
+          "icon": "flight_takeoff",
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Board",
+          "icon": "grid_view",
+          "route": "#",
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "icon": "monitoring",
+          "route": "#",
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "User Profile",
+          "icon": "account_circle",
+          "route": "#",
+          "active": false
+        }
+      ],
+      "title": "Record Editor - TurnOps Console"
+    }
+  }
+}
