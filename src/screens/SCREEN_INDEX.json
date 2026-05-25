@@ -1,0 +1,280 @@
+[
+  {
+    "screenId": "11e4c2b7f4a843b3bb283df39e2f387a",
+    "title": "Insights - TurnOps Console",
+    "componentName": "InsightsTurnopsConsole",
+    "file": "src/screens/InsightsTurnopsConsole.tsx",
+    "buttons": 7,
+    "inputs": 1,
+    "links": 0,
+    "actions": [
+      {
+        "id": "operations-1",
+        "kind": "button",
+        "label": "Operations",
+        "index": 0
+      },
+      {
+        "id": "board-2",
+        "kind": "button",
+        "label": "Board",
+        "index": 1
+      },
+      {
+        "id": "insights-3",
+        "kind": "button",
+        "label": "Insights",
+        "index": 2
+      },
+      {
+        "id": "user-profile-4",
+        "kind": "button",
+        "label": "User Profile",
+        "index": 3
+      },
+      {
+        "id": "notifications-5",
+        "kind": "button",
+        "label": "Notifications",
+        "index": 4
+      },
+      {
+        "id": "settings-6",
+        "kind": "button",
+        "label": "Settings",
+        "index": 5
+      },
+      {
+        "id": "export-summary-7",
+        "kind": "button",
+        "label": "EXPORT SUMMARY",
+        "index": 6
+      }
+    ]
+  },
+  {
+    "screenId": "5eb5e24997be49a984b66f87fb1680d4",
+    "title": "Record Operations - TurnOps Console",
+    "componentName": "RecordOperationsTurnopsConsole",
+    "file": "src/screens/RecordOperationsTurnopsConsole.tsx",
+    "buttons": 10,
+    "inputs": 1,
+    "links": 4,
+    "actions": [
+      {
+        "id": "notifications-1",
+        "kind": "button",
+        "label": "Notifications",
+        "index": 0
+      },
+      {
+        "id": "settings-2",
+        "kind": "button",
+        "label": "Settings",
+        "index": 1
+      },
+      {
+        "id": "all-turns-3",
+        "kind": "button",
+        "label": "ALL TURNS",
+        "index": 2
+      },
+      {
+        "id": "delayed-4",
+        "kind": "button",
+        "label": "DELAYED",
+        "index": 3
+      },
+      {
+        "id": "completed-5",
+        "kind": "button",
+        "label": "COMPLETED",
+        "index": 4
+      },
+      {
+        "id": "filter-list-6",
+        "kind": "button",
+        "label": "Filter List",
+        "index": 5
+      },
+      {
+        "id": "more-vert-7",
+        "kind": "button",
+        "label": "More Vert",
+        "index": 6
+      },
+      {
+        "id": "chevron-right-8",
+        "kind": "button",
+        "label": "Chevron Right",
+        "index": 7
+      },
+      {
+        "id": "chevron-right-9",
+        "kind": "button",
+        "label": "Chevron Right",
+        "index": 8
+      },
+      {
+        "id": "chevron-right-10",
+        "kind": "button",
+        "label": "Chevron Right",
+        "index": 9
+      },
+      {
+        "id": "operations-1",
+        "kind": "link",
+        "label": "Operations",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "board-2",
+        "kind": "link",
+        "label": "Board",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "insights-3",
+        "kind": "link",
+        "label": "Insights",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "user-profile-4",
+        "kind": "link",
+        "label": "User Profile",
+        "href": "#",
+        "index": 3
+      }
+    ]
+  },
+  {
+    "screenId": "e67cf17b446d41b78fc52d5fbc8f051e",
+    "title": "Record Editor - TurnOps Console",
+    "componentName": "RecordEditorTurnopsConsole",
+    "file": "src/screens/RecordEditorTurnopsConsole.tsx",
+    "buttons": 4,
+    "inputs": 4,
+    "links": 4,
+    "actions": [
+      {
+        "id": "notifications-1",
+        "kind": "button",
+        "label": "Notifications",
+        "index": 0
+      },
+      {
+        "id": "settings-2",
+        "kind": "button",
+        "label": "Settings",
+        "index": 1
+      },
+      {
+        "id": "cancel-3",
+        "kind": "button",
+        "label": "Cancel",
+        "index": 2
+      },
+      {
+        "id": "save-record-4",
+        "kind": "button",
+        "label": "Save Record",
+        "index": 3
+      },
+      {
+        "id": "operations-1",
+        "kind": "link",
+        "label": "Operations",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "board-2",
+        "kind": "link",
+        "label": "Board",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "insights-3",
+        "kind": "link",
+        "label": "Insights",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "user-profile-4",
+        "kind": "link",
+        "label": "User Profile",
+        "href": "#",
+        "index": 3
+      }
+    ]
+  },
+  {
+    "screenId": "ad635ff380fd4568b7a8f13dd10d102c",
+    "title": "Status Board - TurnOps Console",
+    "componentName": "StatusBoardTurnopsConsole",
+    "file": "src/screens/StatusBoardTurnopsConsole.tsx",
+    "buttons": 4,
+    "inputs": 1,
+    "links": 4,
+    "actions": [
+      {
+        "id": "notifications-1",
+        "kind": "button",
+        "label": "Notifications",
+        "index": 0
+      },
+      {
+        "id": "settings-2",
+        "kind": "button",
+        "label": "Settings",
+        "index": 1
+      },
+      {
+        "id": "filter-3",
+        "kind": "button",
+        "label": "Filter",
+        "index": 2
+      },
+      {
+        "id": "new-turn-4",
+        "kind": "button",
+        "label": "New Turn",
+        "index": 3
+      },
+      {
+        "id": "operations-1",
+        "kind": "link",
+        "label": "Operations",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "board-2",
+        "kind": "link",
+        "label": "Board",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "insights-3",
+        "kind": "link",
+        "label": "Insights",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "user-profile-4",
+        "kind": "link",
+        "label": "User Profile",
+        "href": "#",
+        "index": 3
+      }
+    ]
+  }
+]
