@@ -37,6 +37,16 @@ const routeToScreen: Record<TurnOpsRoute, string> = {
   editor: 'record-editor',
 };
 
+function getRouteFromPathname(): TurnOpsRoute | null {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
+  const [, segment] = window.location.pathname.split('/');
+
+  return segment === 'board' || segment === 'insights' || segment === 'editor' || segment === 'operations' ? segment : null;
+}
+
 function getCounts(records: TurnRecord[]): TurnOpsCounts {
   return records.reduce<TurnOpsCounts>(
     (counts, record) => {
@@ -54,7 +64,7 @@ function createInitialState(): TurnOpsState {
   const selectedRecordId = loaded.records.some((record) => record.id === loaded.persisted.selectedRecordId)
     ? loaded.persisted.selectedRecordId ?? firstRecordId
     : firstRecordId;
-  const route = loaded.persisted.route ?? 'operations';
+  const route = getRouteFromPathname() ?? loaded.persisted.route ?? 'operations';
   const selectedRecord = loaded.records.find((record) => record.id === selectedRecordId) ?? null;
 
   return {

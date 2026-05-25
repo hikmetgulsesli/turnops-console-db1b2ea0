@@ -23,10 +23,9 @@ export function RecordEditorTurnopsConsole({ actions }: RecordEditorTurnopsConso
       <nav className="bg-surface-container-low dark:bg-surface-container-low text-primary dark:text-primary-fixed font-headline-md text-headline-md docked h-full w-16 lg:w-60 left-0 top-0 border-r border-outline-variant dark:border-outline-variant flat no shadows fixed z-50 flex flex-col py-4 transition-colors duration-300">
       {/* Header */}
       <div className="px-4 mb-8 flex items-center gap-3 overflow-hidden">
-      <button className="w-8 h-8 rounded bg-primary-container flex items-center justify-center shrink-0" type="button" aria-label="flight_takeoff" onClick={actions?.["operations-1"]}>
+      <div className="w-8 h-8 rounded bg-primary-container flex items-center justify-center shrink-0">
       <PlaneTakeoff  style={{fontSize: "18px"}} className="text-on-primary-container" aria-hidden={true} focusable="false" />
-      <span className="sr-only">flight_takeoff</span>
-      </button>
+      </div>
       <div className="flex-col hidden lg:flex">
       <span className="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface uppercase tracking-wider leading-none">TurnOps</span>
       <span className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest leading-none mt-1">Ground Ops</span>
@@ -153,10 +152,10 @@ export function RecordEditorTurnopsConsole({ actions }: RecordEditorTurnopsConso
                                       <CheckCircle2 className="text-[14px] text-tertiary-container" aria-hidden={true} focusable="false" />
       </label>
       <div className="relative">
-      <select className="appearance-none w-full bg-surface-container-high border border-outline-variant text-on-surface font-body-sm text-body-sm h-row-height-sm px-3 pr-8 rounded focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors cursor-pointer" id="fuelingStatus">
+      <select className="appearance-none w-full bg-surface-container-high border border-outline-variant text-on-surface font-body-sm text-body-sm h-row-height-sm px-3 pr-8 rounded focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors cursor-pointer" id="fuelingStatus" defaultValue="completed">
       <option value="pending">Pending</option>
       <option value="active">Active</option>
-      <option selected={true} value="completed">Completed</option>
+      <option value="completed">Completed</option>
       </select>
       <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-[18px]" aria-hidden={true} focusable="false" />
       </div>
@@ -168,9 +167,9 @@ export function RecordEditorTurnopsConsole({ actions }: RecordEditorTurnopsConso
                                       <RefreshCw  style={{animationDuration: "3s"}} className="text-[14px] text-primary-container animate-spin" aria-hidden={true} focusable="false" />
       </label>
       <div className="relative">
-      <select className="appearance-none w-full bg-surface-container-high border border-primary-container text-on-surface font-body-sm text-body-sm h-row-height-sm px-3 pr-8 rounded focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors cursor-pointer shadow-[0_0_0_1px_rgba(14,165,233,0.3)]" id="cateringStatus">
+      <select className="appearance-none w-full bg-surface-container-high border border-primary-container text-on-surface font-body-sm text-body-sm h-row-height-sm px-3 pr-8 rounded focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors cursor-pointer shadow-[0_0_0_1px_rgba(14,165,233,0.3)]" id="cateringStatus" defaultValue="active">
       <option value="pending">Pending</option>
-      <option selected={true} value="active">Active</option>
+      <option value="active">Active</option>
       <option value="completed">Completed</option>
       </select>
       <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-[18px]" aria-hidden={true} focusable="false" />
@@ -183,8 +182,8 @@ export function RecordEditorTurnopsConsole({ actions }: RecordEditorTurnopsConso
                                       <Clock className="text-[14px] text-on-surface-variant" aria-hidden={true} focusable="false" />
       </label>
       <div className="relative">
-      <select className="appearance-none w-full bg-surface-container-high border border-outline-variant text-on-surface font-body-sm text-body-sm h-row-height-sm px-3 pr-8 rounded focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors cursor-pointer" id="baggageStatus">
-      <option selected={true} value="pending">Pending</option>
+      <select className="appearance-none w-full bg-surface-container-high border border-outline-variant text-on-surface font-body-sm text-body-sm h-row-height-sm px-3 pr-8 rounded focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors cursor-pointer" id="baggageStatus" defaultValue="pending">
+      <option value="pending">Pending</option>
       <option value="active">Active</option>
       <option value="completed">Completed</option>
       </select>

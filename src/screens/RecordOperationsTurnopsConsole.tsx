@@ -23,10 +23,9 @@ export function RecordOperationsTurnopsConsole({ actions }: RecordOperationsTurn
       <nav className="bg-surface-container-low dark:bg-surface-container-low docked h-full w-16 lg:w-60 left-0 top-0 border-r border-outline-variant dark:border-outline-variant flat no shadows fixed left-0 top-0 z-50 flex flex-col py-4 flex-shrink-0 transition-colors duration-300">
       {/* Header */}
       <div className="px-4 mb-8 flex items-center space-x-3 overflow-hidden">
-      <button className="w-8 h-8 rounded-DEFAULT bg-primary flex items-center justify-center flex-shrink-0" type="button" aria-label="flight_takeoff" onClick={actions?.["operations-1"]}>
+      <div className="w-8 h-8 rounded-DEFAULT bg-primary flex items-center justify-center flex-shrink-0">
       <PlaneTakeoff  style={{fontVariationSettings: "'FILL' 1"}} className="text-on-primary" aria-hidden={true} focusable="false" />
-      <span className="sr-only">flight_takeoff</span>
-      </button>
+      </div>
       <div className="hidden lg:block">
       <div className="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface truncate">TurnOps</div>
       <div className="font-body-sm text-body-sm text-on-surface-variant truncate">Ground Ops</div>
