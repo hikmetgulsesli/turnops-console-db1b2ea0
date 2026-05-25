@@ -8,6 +8,7 @@
 // 4. Replace placeholder data with props/state
 
 import { Activity, Bell, CircleUserRound, Grid3X3, ListFilter, PlaneTakeoff, Plus, Search, Settings, TriangleAlert, UserMinus } from "lucide-react";
+import type { MouseEvent } from "react";
 import type { TurnRecord, TurnStatus } from "../__fixtures__/turnops-console.fixture";
 
 
@@ -44,6 +45,11 @@ function getProgressClass(record: TurnRecord) {
   return "w-[15%] bg-primary";
 }
 
+function runNavAction(event: MouseEvent<HTMLAnchorElement>, action?: () => void) {
+  event.preventDefault();
+  action?.();
+}
+
 export function StatusBoardTurnopsConsole({
   actions,
   filterMode = "all",
@@ -72,25 +78,25 @@ export function StatusBoardTurnopsConsole({
       {/* Navigation Tabs */}
       <nav className="flex-1 flex flex-col gap-1 px-2">
       {/* Tab: Operations */}
-      <a className="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 ease-in-out group" href="#" title="Operations" data-action-id="operations-1" onClick={actions?.["operations-1"]}>
+      <a className="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 ease-in-out group" href="/operations" title="Operations" data-action-id="operations-1" onClick={(event) => runNavAction(event, actions?.["operations-1"])}>
       <PlaneTakeoff className="group-hover:text-on-surface" aria-hidden={true} focusable="false" />
       <span className="hidden lg:block font-label-caps text-label-caps uppercase tracking-wider">Operations</span>
       </a>
       {/* Tab: Board (ACTIVE) */}
       {/* CRITICAL: Applying style_active_navigation correctly based on JSON */}
-      <a className="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-primary dark:text-primary-fixed-dim border-l-2 border-primary bg-surface-variant/30 transition-colors duration-150 ease-in-out" href="#" title="Board" data-action-id="board-2" onClick={actions?.["board-2"]}>
+      <a className="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-primary dark:text-primary-fixed-dim border-l-2 border-primary bg-surface-variant/30 transition-colors duration-150 ease-in-out" href="/board" title="Board" data-action-id="board-2" aria-current="page" onClick={(event) => runNavAction(event, actions?.["board-2"])}>
       <Grid3X3  style={{fontVariationSettings: "'FILL' 1"}} aria-hidden={true} focusable="false" />
       <span className="hidden lg:block font-label-caps text-label-caps uppercase tracking-wider font-bold">Board</span>
       </a>
       {/* Tab: Insights */}
-      <a className="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 ease-in-out group" href="#" title="Insights" data-action-id="insights-3" onClick={actions?.["insights-3"]}>
+      <a className="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 ease-in-out group" href="/insights" title="Insights" data-action-id="insights-3" onClick={(event) => runNavAction(event, actions?.["insights-3"])}>
       <Activity className="group-hover:text-on-surface" aria-hidden={true} focusable="false" />
       <span className="hidden lg:block font-label-caps text-label-caps uppercase tracking-wider">Insights</span>
       </a>
       </nav>
       {/* Footer / Profile */}
       <div className="mt-auto px-2">
-      <a className="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 ease-in-out group" href="#" title="User Profile" data-action-id="user-profile-4" onClick={actions?.["user-profile-4"]}>
+      <a className="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 ease-in-out group" href="/profile" title="User Profile" data-action-id="user-profile-4" onClick={(event) => runNavAction(event, actions?.["user-profile-4"])}>
       <CircleUserRound className="group-hover:text-on-surface" aria-hidden={true} focusable="false" />
       <span className="hidden lg:block font-label-caps text-label-caps uppercase tracking-wider">User Profile</span>
       </a>

@@ -45,11 +45,35 @@ export default function App() {
   }, [boardFilter, boardQuery, boardRecords]);
 
   const shellActions = useMemo(() => {
-    const openOperations = () => turnOpsConsoleStore.navigate('operations');
-    const openBoard = () => turnOpsConsoleStore.navigate('board');
-    const openInsights = () => turnOpsConsoleStore.navigate('insights');
-    const openSettings = () => turnOpsConsoleStore.setPanel('settings');
-    const openNotifications = () => turnOpsConsoleStore.setPanel('notifications');
+    const setPath = (path: string) => {
+      if (window.location.pathname !== path) {
+        window.history.pushState(null, '', path);
+      }
+    };
+    const openOperations = () => {
+      setPath('/operations');
+      turnOpsConsoleStore.navigate('operations');
+    };
+    const openBoard = () => {
+      setPath('/board');
+      turnOpsConsoleStore.navigate('board');
+    };
+    const openInsights = () => {
+      setPath('/insights');
+      turnOpsConsoleStore.navigate('insights');
+    };
+    const openSettings = () => {
+      setPath('/settings');
+      turnOpsConsoleStore.setPanel('settings');
+    };
+    const openNotifications = () => {
+      setPath('/notifications');
+      turnOpsConsoleStore.setPanel('notifications');
+    };
+    const openUserProfile = () => {
+      setPath('/profile');
+      turnOpsConsoleStore.setPanel('settings');
+    };
 
     return {
       openOperations,
@@ -57,6 +81,7 @@ export default function App() {
       openInsights,
       openSettings,
       openNotifications,
+      openUserProfile,
     };
   }, []);
 
@@ -76,7 +101,7 @@ export default function App() {
         'operations-1': shellActions.openOperations,
         'board-2': shellActions.openBoard,
         'insights-3': shellActions.openInsights,
-        'user-profile-4': () => turnOpsConsoleStore.setPanel('settings'),
+        'user-profile-4': shellActions.openUserProfile,
       }) satisfies Partial<Record<RecordOperationsTurnopsConsoleActionId, () => void>>,
     [shellActions, state.records],
   );
@@ -96,7 +121,7 @@ export default function App() {
         'operations-1': shellActions.openOperations,
         'board-2': shellActions.openBoard,
         'insights-3': shellActions.openInsights,
-        'user-profile-4': () => turnOpsConsoleStore.setPanel('settings'),
+        'user-profile-4': shellActions.openUserProfile,
       }) satisfies Partial<Record<StatusBoardTurnopsConsoleActionId, () => void>>,
     [boardRecords, shellActions],
   );
@@ -107,7 +132,7 @@ export default function App() {
         'operations-1': shellActions.openOperations,
         'board-2': shellActions.openBoard,
         'insights-3': shellActions.openInsights,
-        'user-profile-4': () => turnOpsConsoleStore.setPanel('settings'),
+        'user-profile-4': shellActions.openUserProfile,
         'notifications-5': shellActions.openNotifications,
         'settings-6': shellActions.openSettings,
         'export-summary-7': () => setInsightsSummary(createInsightsSummary(filteredInsightRecords)),
@@ -125,7 +150,7 @@ export default function App() {
         'operations-1': shellActions.openOperations,
         'board-2': shellActions.openBoard,
         'insights-3': shellActions.openInsights,
-        'user-profile-4': () => turnOpsConsoleStore.setPanel('settings'),
+        'user-profile-4': shellActions.openUserProfile,
       }) satisfies Partial<Record<RecordEditorTurnopsConsoleActionId, () => void>>,
     [shellActions],
   );
