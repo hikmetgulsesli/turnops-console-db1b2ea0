@@ -104,79 +104,19 @@ export default function App() {
     [shellActions],
   );
 
-  const selectedRecordLabel = state.selectedRecord
-    ? `${state.selectedRecord.vessel} at ${state.selectedRecord.berth}`
-    : 'No turn selected';
-  const panelTitle =
-    state.activePanel === 'settings'
-      ? 'Supervisor settings'
-      : state.activePanel === 'notifications'
-        ? 'Operations notifications'
-        : state.activePanel === 'filters'
-          ? 'Turn filters'
-          : state.activePanel === 'delayed'
-            ? 'Delayed turns'
-            : state.activePanel === 'completed'
-              ? 'Completed turns'
-              : 'All turns';
   const storageMessage =
     state.storageStatus === 'ready'
       ? state.lastError ?? 'TurnOps preferences are saved locally.'
       : state.storageStatus === 'recovered'
         ? state.lastError ?? 'Saved TurnOps preferences were reset.'
         : state.lastError ?? 'Local preferences are unavailable.';
-  const showPanel = state.activePanel !== 'all';
-  const activePanelCount =
-    state.activePanel === 'delayed'
-      ? state.counts.delayed
-      : state.activePanel === 'completed'
-        ? state.counts.completed
-        : state.counts.total;
 
   return (
-    <div className="turnops-shell" data-setfarm-root="turnops-console" data-active-screen={state.activeScreen}>
+    <div className="turnops-shell flex min-h-screen" data-setfarm-root="turnops-console" data-active-screen={state.activeScreen}>
       {state.route === 'operations' ? <RecordOperationsTurnopsConsole actions={operationsActions} /> : null}
       {state.route === 'board' ? <StatusBoardTurnopsConsole actions={boardActions} /> : null}
       {state.route === 'insights' ? <InsightsTurnopsConsole actions={insightsActions} /> : null}
       {state.route === 'editor' ? <RecordEditorTurnopsConsole actions={editorActions} /> : null}
-      <section className="turnops-status-panel" aria-label="TurnOps console state">
-        <div>
-          <p>Active surface: {state.activeScreen}</p>
-          <p>
-            Selected turn: {selectedRecordLabel} - Items: {state.itemCount}
-          </p>
-          <p>Storage: {state.storageStatus}</p>
-          <p>{storageMessage}</p>
-        </div>
-        <div className="turnops-status-actions">
-          <button type="button" onClick={() => turnOpsConsoleStore.retryPersistence()}>
-            Retry save
-          </button>
-          <button type="button" onClick={() => turnOpsConsoleStore.clearPersistence()}>
-            Clear saved data
-          </button>
-        </div>
-      </section>
-      {showPanel ? (
-        <aside className="turnops-action-panel" aria-label={panelTitle}>
-          <div>
-            <p className="turnops-panel-kicker">Panel</p>
-            <h2>{panelTitle}</h2>
-          </div>
-          <p>
-            {state.activePanel === 'settings'
-              ? 'Shift supervisor preferences and profile controls are open.'
-              : state.activePanel === 'notifications'
-                ? 'Current gate readiness, delay risk, fueling, catering, baggage, cleaning, and crew alerts are open.'
-                : state.activePanel === 'filters'
-                  ? 'Filters are open for delay, completion, and active turn views.'
-                  : `${panelTitle} view is active for ${activePanelCount} matching turns.`}
-          </p>
-          <button type="button" onClick={() => turnOpsConsoleStore.setPanel('all')}>
-            Close panel
-          </button>
-        </aside>
-      ) : null}
       <div className="sr-only" role="status" aria-live="polite">
         {storageMessage}
       </div>
