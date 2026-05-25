@@ -37,6 +37,35 @@ const routeToScreen: Record<TurnOpsRoute, string> = {
   editor: 'record-editor',
 };
 
+const routeToPath: Record<TurnOpsRoute, string> = {
+  operations: '/operations',
+  board: '/board',
+  insights: '/insights',
+  editor: '/editor',
+};
+
+function getRouteFromPathname(): TurnOpsRoute | null {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
+  const [, segment] = window.location.pathname.split('/');
+
+  return segment === 'board' || segment === 'insights' || segment === 'editor' || segment === 'operations' ? segment : null;
+}
+
+function syncPathname(route: TurnOpsRoute) {
+  if (typeof window === 'undefined') {
+    return;
+  }
+
+  const nextPathname = routeToPath[route];
+
+  if (window.location.pathname !== nextPathname) {
+    window.history.pushState(null, '', nextPathname);
+  }
+}
+
 function getCounts(records: TurnRecord[]): TurnOpsCounts {
   return records.reduce<TurnOpsCounts>(
     (counts, record) => {
@@ -54,7 +83,7 @@ function createInitialState(): TurnOpsState {
   const selectedRecordId = loaded.records.some((record) => record.id === loaded.persisted.selectedRecordId)
     ? loaded.persisted.selectedRecordId ?? firstRecordId
     : firstRecordId;
-  const route = loaded.persisted.route ?? 'operations';
+  const route = getRouteFromPathname() ?? loaded.persisted.route ?? 'operations';
   const selectedRecord = loaded.records.find((record) => record.id === selectedRecordId) ?? null;
 
   return {
@@ -99,6 +128,7 @@ function persist(nextState: TurnOpsState): TurnOpsState {
 }
 
 function withRoute(route: TurnOpsRoute, patch: Partial<TurnOpsState> = {}) {
+  syncPathname(route);
   const nextState = persist({
     ...state,
     ...patch,

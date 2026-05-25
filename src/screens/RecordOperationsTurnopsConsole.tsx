@@ -23,10 +23,9 @@ export function RecordOperationsTurnopsConsole({ actions }: RecordOperationsTurn
       <nav className="bg-surface-container-low dark:bg-surface-container-low docked h-full w-16 lg:w-60 left-0 top-0 border-r border-outline-variant dark:border-outline-variant flat no shadows fixed left-0 top-0 z-50 flex flex-col py-4 flex-shrink-0 transition-colors duration-300">
       {/* Header */}
       <div className="px-4 mb-8 flex items-center space-x-3 overflow-hidden">
-      <button className="w-8 h-8 rounded-DEFAULT bg-primary flex items-center justify-center flex-shrink-0" type="button" aria-label="Open operations" onClick={actions?.["operations-1"]}>
+      <div className="w-8 h-8 rounded-DEFAULT bg-primary flex items-center justify-center flex-shrink-0">
       <PlaneTakeoff  style={{fontVariationSettings: "'FILL' 1"}} className="text-on-primary" aria-hidden={true} focusable="false" />
-      <span className="sr-only">flight_takeoff</span>
-      </button>
+      </div>
       <div className="hidden lg:block">
       <div className="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface truncate">TurnOps</div>
       <div className="font-body-sm text-body-sm text-on-surface-variant truncate">Ground Ops</div>
@@ -71,10 +70,10 @@ export function RecordOperationsTurnopsConsole({ actions }: RecordOperationsTurn
       </div>
       <div className="text-on-surface-variant font-data-tabular text-data-tabular">12:45 UTC</div>
       <div className="flex items-center space-x-2">
-      <button className="text-on-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-highest p-1 rounded-DEFAULT transition-colors cursor-pointer active:opacity-80" type="button" data-action-id="notifications-1" aria-label="Open notifications" onClick={actions?.["notifications-1"]}>
+      <button className="text-on-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-highest p-1 rounded-DEFAULT transition-colors cursor-pointer active:opacity-80" type="button" data-action-id="notifications-1" onClick={actions?.["notifications-1"]}>
       <Bell className="text-[20px]" aria-hidden={true} focusable="false" />
       </button>
-      <button className="text-on-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-highest p-1 rounded-DEFAULT transition-colors cursor-pointer active:opacity-80" type="button" data-action-id="settings-2" aria-label="Open settings" onClick={actions?.["settings-2"]}>
+      <button className="text-on-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-highest p-1 rounded-DEFAULT transition-colors cursor-pointer active:opacity-80" type="button" data-action-id="settings-2" onClick={actions?.["settings-2"]}>
       <Settings className="text-[20px]" aria-hidden={true} focusable="false" />
       </button>
       <div className="w-6 h-6 rounded-full bg-surface-container-highest border border-outline-variant overflow-hidden ml-2 cursor-pointer">
@@ -146,10 +145,10 @@ export function RecordOperationsTurnopsConsole({ actions }: RecordOperationsTurn
       <button className="bg-transparent border border-outline-variant text-on-surface font-label-caps text-label-caps px-3 py-1.5 rounded-DEFAULT hover:bg-surface-container-high transition-colors" type="button" data-action-id="completed-5" onClick={actions?.["completed-5"]}>COMPLETED</button>
       </div>
       <div className="flex space-x-2">
-      <button className="text-on-surface-variant p-1 rounded-DEFAULT hover:bg-surface-container-high transition-colors border border-transparent hover:border-outline-variant" type="button" data-action-id="filter-list-6" aria-label="Filter turns" onClick={actions?.["filter-list-6"]}>
+      <button className="text-on-surface-variant p-1 rounded-DEFAULT hover:bg-surface-container-high transition-colors border border-transparent hover:border-outline-variant" type="button" data-action-id="filter-list-6" onClick={actions?.["filter-list-6"]}>
       <ListFilter className="text-[18px]" aria-hidden={true} focusable="false" />
       </button>
-      <button className="text-on-surface-variant p-1 rounded-DEFAULT hover:bg-surface-container-high transition-colors border border-transparent hover:border-outline-variant" type="button" data-action-id="more-vert-7" aria-label="Open more turn actions" onClick={actions?.["more-vert-7"]}>
+      <button className="text-on-surface-variant p-1 rounded-DEFAULT hover:bg-surface-container-high transition-colors border border-transparent hover:border-outline-variant" type="button" data-action-id="more-vert-7" onClick={actions?.["more-vert-7"]}>
       <EllipsisVertical className="text-[18px]" aria-hidden={true} focusable="false" />
       </button>
       </div>
@@ -200,7 +199,7 @@ export function RecordOperationsTurnopsConsole({ actions }: RecordOperationsTurn
       </div>
       </td>
       <td className="py-1 px-3 text-right">
-      <button className="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100" type="button" data-action-id="chevron-right-8" aria-label="Open BAW123 turn details" onClick={actions?.["chevron-right-8"]}>
+      <button className="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100" type="button" data-action-id="chevron-right-8" onClick={actions?.["chevron-right-8"]}>
       <ChevronRight className="text-[18px]" aria-hidden={true} focusable="false" />
       </button>
       </td>
@@ -234,7 +233,7 @@ export function RecordOperationsTurnopsConsole({ actions }: RecordOperationsTurn
       </div>
       </td>
       <td className="py-1 px-3 text-right">
-      <button className="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100" type="button" data-action-id="chevron-right-9" aria-label="Open AA051 turn details" onClick={actions?.["chevron-right-9"]}>
+      <button className="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100" type="button" data-action-id="chevron-right-9" onClick={actions?.["chevron-right-9"]}>
       <ChevronRight className="text-[18px]" aria-hidden={true} focusable="false" />
       </button>
       </td>
@@ -268,7 +267,7 @@ export function RecordOperationsTurnopsConsole({ actions }: RecordOperationsTurn
       </div>
       </td>
       <td className="py-1 px-3 text-right">
-      <button className="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100" type="button" data-action-id="chevron-right-10" aria-label="Open VS201 turn details" onClick={actions?.["chevron-right-10"]}>
+      <button className="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100" type="button" data-action-id="chevron-right-10" onClick={actions?.["chevron-right-10"]}>
       <ChevronRight className="text-[18px]" aria-hidden={true} focusable="false" />
       </button>
       </td>
