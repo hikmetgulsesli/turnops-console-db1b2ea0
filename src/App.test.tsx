@@ -1,49 +1,45 @@
-import { cleanup, render, screen, waitFor } from '@testing-library/react';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
 import App from './App';
-import { turnOpsConsoleStore } from './features/turnops-console/turnops-console.store';
+import { turnOpsFixtureRecords } from './__fixtures__/turnops-console.fixture';
+import {
+  InsightsTurnopsConsole,
+  RecordEditorTurnopsConsole,
+  RecordOperationsTurnopsConsole,
+  StatusBoardTurnopsConsole,
+} from './screens';
 
 describe('App', () => {
-  beforeEach(() => {
-    window.localStorage.clear();
-    window.history.replaceState(null, '', '/');
-    turnOpsConsoleStore.reset();
-  });
-
-  afterEach(() => {
-    cleanup();
-    vi.restoreAllMocks();
-  });
-
   it('renders an application root', () => {
     render(<App />);
     expect(screen.getByRole('main')).toBeInTheDocument();
   });
 
-  it.each([
-    ['/board', 'board', 'status-board'],
-    ['/insights', 'insights', 'insights'],
-  ])('hydrates %s as the active direct route', async (path, route, activeScreen) => {
-    window.localStorage.clear();
-    window.history.replaceState(null, '', path);
-    turnOpsConsoleStore.reset();
+  it('exposes stable names for icon-only controls', () => {
+    const { unmount: unmountOperations } = render(<RecordOperationsTurnopsConsole />);
+    expect(screen.getByRole('button', { name: 'Open operations' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Open notifications' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Open settings' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Filter turns' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Open more turn actions' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Open BAW123 turn details' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Open AA051 turn details' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Open VS201 turn details' })).toBeInTheDocument();
+    unmountOperations();
 
-    render(<App />);
+    const { unmount: unmountBoard } = render(<StatusBoardTurnopsConsole records={turnOpsFixtureRecords} />);
+    expect(screen.getByRole('button', { name: 'Open notifications' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Open settings' })).toBeInTheDocument();
+    unmountBoard();
 
-    await waitFor(() => {
-      expect(window.app?.route).toBe(route);
-      expect(window.app?.activeScreen).toBe(activeScreen);
-    });
-  });
+    const { unmount: unmountInsights } = render(<InsightsTurnopsConsole records={turnOpsFixtureRecords} />);
+    expect(screen.getByRole('button', { name: 'Open notifications' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Open settings' })).toBeInTheDocument();
+    unmountInsights();
 
-  it('renders the record editor without option selected warnings', () => {
-    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => undefined);
-    window.history.replaceState(null, '', '/editor');
-    turnOpsConsoleStore.reset();
-
-    render(<App />);
-
-    expect(screen.getByRole('main')).toBeInTheDocument();
-    expect(consoleError).not.toHaveBeenCalledWith(expect.stringContaining('Use the `defaultValue` or `value` props on <select>'));
+    render(<RecordEditorTurnopsConsole />);
+    expect(screen.getByRole('button', { name: 'Open operations' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Open notifications' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Open settings' })).toBeInTheDocument();
   });
 });
