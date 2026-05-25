@@ -1,4 +1,5 @@
 import {
+  clearTurnOpsConsole,
   loadTurnOpsConsole,
   saveTurnOpsConsole,
   type TurnOpsPanel,
@@ -20,6 +21,7 @@ export interface TurnOpsState {
   selectedRecordId: string | null;
   selectedRecord: TurnRecord | null;
   records: TurnRecord[];
+  itemCount: number;
   counts: TurnOpsCounts;
   storageStatus: TurnOpsStorageStatus;
   lastError: string | null;
@@ -61,6 +63,7 @@ function createInitialState(): TurnOpsState {
     selectedRecordId,
     selectedRecord,
     records: loaded.records,
+    itemCount: loaded.records.length,
     counts: getCounts(loaded.records),
     storageStatus: loaded.storageStatus,
     lastError: loaded.lastError,
@@ -128,6 +131,27 @@ export const turnOpsConsoleStore = {
   },
   saveSelectedRecord() {
     withRoute('operations', { activePanel: 'all', lastError: null });
+  },
+  retryPersistence() {
+    const nextState = persist({ ...state, lastError: null });
+    emit({
+      ...nextState,
+      lastError:
+        nextState.storageStatus === 'ready'
+          ? 'TurnOps preferences were saved successfully.'
+          : nextState.lastError ?? 'Local preferences could not be saved in this browser session.',
+    });
+  },
+  clearPersistence() {
+    const storageStatus = clearTurnOpsConsole();
+    emit({
+      ...createInitialState(),
+      storageStatus,
+      lastError:
+        storageStatus === 'ready'
+          ? 'Saved TurnOps preferences were cleared.'
+          : 'Saved TurnOps preferences could not be cleared in this browser session.',
+    });
   },
   reset() {
     emit(createInitialState());

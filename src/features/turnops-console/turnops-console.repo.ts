@@ -107,3 +107,18 @@ export function saveTurnOpsConsole(state: PersistedTurnOpsState): TurnOpsStorage
     return 'unavailable';
   }
 }
+
+export function clearTurnOpsConsole(): TurnOpsStorageStatus {
+  const storage = getStorage();
+
+  if (!storage) {
+    return 'unavailable';
+  }
+
+  try {
+    storage.removeItem(STORAGE_KEY);
+    return 'ready';
+  } catch {
+    return 'unavailable';
+  }
+}
